@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shoe-shop-main-page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/resources/normalize.css">
+    <link rel="stylesheet" href="assets/resources/fontawesome/css/all.css">
+    <link rel="stylesheet" href="assets/resources/css/home.css">
+    <link rel="stylesheet" href="assets/resources/bootstrap/css/bootstrap.css">
+</head>
+<body>
+    <main>
+        <section id="home-page">
+        </section>
+
+        <!--Log-in-page-->
+        <section id="log-in-page">
+            <section id="log-in-content-cover" class="d-flex col-8 col-sm-4 col-md-3 mt-5 justify-content-center rounded-4 w-100">
+                <section id="log-in-content" class="col-8 p-4 bg-light rounded-4 w-25">
+                    <div class=" w-100 mt-2 mb-4 bg-primary rounded-1">
+                        <h2 class="text-center m-0 pb-2 text-white">Log In</h2>
+                    </div>
+                    <div id="log-logo-div" class="d-flex justify-content-start mb-4">
+                        <img src="assets/resources/image/logo-icon.png" width="35px" height="35px" alt="icon not found">
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="txtLogInUserName" placeholder="name@example.com">
+                        <label for="txtLogInUserName">User Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="txtLogInPassword" placeholder="Password">
+                        <label for="txtLogInPassword">Password</label>
+                    </div>
+                    <section class="d-flex flex-wrap justify-content-center gap-2">
+                        <button id="btn-log-in" type="button" class="btn btn-outline-primary w-50">Log In</button>
+                    </section>
+                    <div class="d-flex justify-content-center gap-2 my-3">
+                        <p class=" m-0" style="font-size: 12px">Don't have an account?</p>
+                        <p class="d-flex align-items-center m-0"><a id="link-sign-up" class="link-opacity-100-hover" href="#" style="font-size: 12px">sign up</a></p>
+                    </div>
+                </section>
+            </section>
+        </section>
+
+<!--        Sign-up-page-->
+        <section id="sign-up-page">
+            <section id="sign-up-content-cover" class="d-flex col-8 col-sm-4 col-md-3 mt-5 justify-content-center rounded-4 w-100">
+                <section id="sign-up-content" class="col-8 p-4 bg-light rounded-4 w-25">
+                    <div class=" w-100 mt-2 mb-4 bg-primary rounded-1">
+                        <h2 class="text-center m-0 pb-2 text-white">Sign Up</h2>
+                    </div>
+                    <div id="sign-logo-div" class="d-flex justify-content-start mb-4">
+                        <img src="assets/resources/image/logo-icon.png" width="35px" height="35px" alt="icon not found">
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="txtSignUpUserName" placeholder="name@example.com">
+                        <label for="txtSignUpUserName">User Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="txtSignUpPassword" placeholder="Password">
+                        <label for="txtSignUpPassword">Password</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="txtSignUpConfirmPassword" placeholder="Confirm Password">
+                        <label for="txtSignUpConfirmPassword">Confirm Password</label>
+                    </div>
+                    <section class="d-flex flex-wrap justify-content-center gap-2">
+                        <button id="btn-sign-up" type="button" class="btn btn-outline-primary w-50">Sign Up</button>
+                    </section>
+                    <div class="d-flex justify-content-center gap-2 my-3">
+                        <p class=" m-0" style="font-size: 12px">Already have an account?</p>
+                        <p class="d-flex align-items-center m-0"><a id="link-log-in" class="link-opacity-100-hover" href="#" style="font-size: 12px">log in</a></p>
+                    </div>
+                </section>
+            </section>
+        </section>
+    </main>
+    <script src="assets/resources/bootstrap/js/bootstrap.js"></script>
+    <script src="assets/resources/bootstrap/js/jquery-3.7.1.min.js"></script>
+    <script src="controllers/DashboardController.js"></script>
+</body>
+</html>
