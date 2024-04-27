@@ -54,11 +54,14 @@
 }*/
 
 header{
-    background: linear-gradient(to right, #0d6efd, #0a58ca);
-    box-shadow: 0px 0px 8px 4px #0000007a;
+    /*background: linear-gradient(to right, #0d6efd, #0a58ca);*/
+    background: linear-gradient(to right, white, #e7eefa);
+    /*box-shadow: 0px 0px 8px 4px #0000007a;*/
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 header .nav-link{
-    color: white;
+    color: black;
 }
 header #header-main-cover{
     width: 80%;

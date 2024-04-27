@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../resources/normalize.css">
     <link rel="stylesheet" href="../resources/fontawesome/css/all.css">
-    <link rel="stylesheet" href="../resources/css/home.css">
+    <link rel="stylesheet" href="../resources/css/admin.css">
     <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.css">
 </head>
 <body>
@@ -15,45 +15,129 @@
         <div class="container-fluid" id="header-main-cover">
             <div id="logo-div" class="d-flex">
                 <img src="../resources/image/logo-icon.png" width="40px" height="40px" alt="logo icon not found">
-                <h1 class="navbar-brand me-5 ms-2 fs-4">Hello Shoes</h1>
+                <h1 class="navbar-brand me-2 ms-2 fs-4">Hello Shoes</h1>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end pe-5" id="navbarNav">
                 <ul class="navbar-nav gap-2">
-                    <li id="home-nav" class="nav-item">
+                    <li id="admin-home-nav" class="nav-item">
                         <!--                            <a class="nav-link active fw-medium text-body-secondary" aria-current="page" href="#"></i>Home</a>-->
-                        <a class="nav-link fw-medium" href="" style="font-size: 15px">Home</a>
+                        <a class="nav-link fw-medium" href="#admin-home-page" style="font-size: 15px">Home</a>
                     </li>
-                    <li id="customer-nav" class="nav-item">
-                        <a class=" nav-link fw-medium" href="" style="font-size: 15px">Customers</a>
+                    <li id="admin-customer-nav" class="nav-item">
+                        <a class=" nav-link fw-medium" href="#admin-customer-page" style="font-size: 15px">Customers</a>
                     </li>
-                    <li id="item-nav" class="nav-item">
+                    <li id="admin-item-nav" class="nav-item">
                         <a class="nav-link fw-medium" href="" style="font-size: 15px">Items</a>
                     </li>
-                    <li id="order-nav" class="nav-item">
+                    <li id="admin-order-nav" class="nav-item">
                         <a class="nav-link fw-medium" href="" style="font-size: 15px">Place Orders</a>
                     </li>
-                    <li id="order-detail-nav" class="nav-item">
+                    <li id="admin-order-detail-nav" class="nav-item">
                         <a class="nav-link fw-medium" href="" style="font-size: 15px">Order details</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav gap-2">
-                    <li id="sign-up-nav" class="nav-item">
-                        <a class="nav-link" href="#"><i class="fs-5 fa-solid fa-user-plus"></i></a>
-                    </li>
-                    <li id="log-in-nav" class="nav-item">
-                        <a class="nav-link" href="#"><i class="fs-5 fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i></a>
-                    </li>
-                </ul>
             </div>
+            <ul class="navbar-nav gap-2">
+                <li id="sign-up-nav" class="nav-item">
+                    <a class="nav-link" href="#"><i class="fs-5 fa-solid fa-user-plus"></i></a>
+                </li>
+                <li id="log-in-nav" class="nav-item">
+                    <a class="nav-link" href="#"><i class="fs-5 fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i></a>
+                </li>
+            </ul>
         </div>
     </nav>
 </header>
 
+<main>
+    <section id="admin-home-page">
+    </section>
+
+    <section id="admin-customer-page">
+        <section id="customer-title" class="d-flex mt-5 mb-4 justify-content-center">
+            <div class="rounded-pill w-75 bg-primary">
+                <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-users mx-2"></i>Manage Customers</h4>
+            </div>
+        </section>
+        <section id="customer-content" class="container-fluid py-4 rounded-4">
+            <section class="d-flex justify-content-around flex-column align-items-center gap-5 flex-wrap-reverse">
+                <!--input fields-->
+                <section id="right-content" class="d-flex col-8 col-sm-4 col-md-3 justify-content-end rounded-4">
+                    <section class="col-8 p-2 bg-light rounded-4 w-100">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="txtCustomerID" placeholder="name@example.com">
+                            <label for="txtCustomerID">Customer ID</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="txtCustomerName" placeholder="name@example.com">
+                            <label for="txtCustomerName">Customer Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="txtCustomerAddress" placeholder="name@example.com">
+                            <label for="txtCustomerAddress">Address</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="txtCustomerConNum" placeholder="name@example.com">
+                            <label for="txtCustomerConNum">Contact Num.</label>
+                        </div>
+                        <section class="d-flex flex-wrap justify-content-center gap-2">
+                            <button id="btnCustomerSave" type="button" class="btn btn-outline-success">Save</button>
+                            <button id="btnCustomerUpdate" type="button" class="btn btn-outline-primary">update</button>
+                            <button id="btnCustomerDelete" type="button" class="btn btn-outline-danger">Delete</button>
+                        </section>
+                    </section>
+                </section>
+                <!--table-->
+                <section id="left-content" class="col-12 col-sm-8 my-2">
+                    <section id="customer-search" class="mb-5">
+                        <form class="row gx-3 gy-2 align-items-center">
+                            <div class="col-sm-3">
+                                <label class="visually-hidden" for="cmbCustomerSearch">Preference</label>
+                                <select class="form-select" id="cmbCustomerSearch">
+                                    <option value="ID">ID</option>
+                                    <option value="Name">Name</option>
+                                </select>
+                            </div>
+                            <div class="w-50 col-sm-3">
+                                <label class="visually-hidden" for="txtCustomerSearch">Name</label>
+                                <input type="text" class="form-control" id="txtCustomerSearch" placeholder="Search customer">
+                            </div>
+                            <div class="col-auto">
+                                <button id="btnCustomerSearch" type="button" class="btn btn-outline-primary">Search</button>
+                            </div>
+                            <div class="col-auto">
+                                <button id="btnCustomerClear" type="button" class="btn btn-outline-warning">Clear</button>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!--                    table-->
+                    <section id="customer-table" class="p-2 rounded-4 bg-light">
+                        <table id="tableCustomer" class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col" class="bg-primary text-white">ID</th>
+                                <th scope="col" class="bg-primary text-white">Name</th>
+                                <th scope="col" class="bg-primary text-white">Address</th>
+                                <th scope="col" class="bg-primary text-white">Salary</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbody-customer" class="table-group-divider"></tbody>
+                        </table>
+                    </section>
+
+                </section>
+            </section>
+        </section>
+    </section>
+</main>
+
 <script src="../resources/bootstrap/js/bootstrap.js"></script>
 <script src="../resources/bootstrap/js/jquery-3.7.1.min.js"></script>
-<script src="../../controllers/DashboardController.js"></script>
+<script src="../../controllers/admin/AdminDashboardController.js"></script>
+<script src="../../controllers/admin/AdminCustomerController.js"></script>
 </body>
 </html>

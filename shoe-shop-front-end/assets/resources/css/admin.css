@@ -1,0 +1,38 @@
+header{
+    background: linear-gradient(to right, #0d6efd, #0a58ca);
+    /*background: linear-gradient(to right, white, #e7eefa);*/
+    /*box-shadow: 0px 0px 8px 4px #0000007a;*/
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 80%;
+    margin-left: 10%;
+}
+header .nav-link{
+    color: black;
+}
+header #header-main-cover{
+
+}
+
+/*home-page //////////////////////*/
+#admin-home-page{
+    height: 90vh;
+    background-image: url(../../resources/image/home-bg.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/*admin-customer //////////////////////////////////*/
+#admin-customer-page{
+    display: none;
+}
+#admin-customer-page #customer-content{
+    box-shadow: 0px 0px 8px 1px #0000007a;
+    width: 90%;
+}
+#admin-customer-page #right-content{
+    box-shadow: 0px 0px 8px 1px #0000007a;
+}
