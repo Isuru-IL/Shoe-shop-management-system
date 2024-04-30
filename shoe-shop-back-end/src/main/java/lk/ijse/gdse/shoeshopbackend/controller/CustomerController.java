@@ -30,6 +30,11 @@ public class CustomerController {
         return customerService.updateCustomer(customerDTO);
     }
 
+    @DeleteMapping("/delete")
+    public boolean delete(@RequestParam("code") String code){
+        return customerService.deleteCustomer(code);
+    }
+
     @GetMapping("/getAllCustomers")
     public List<CustomerDTO> getAllCustomers(){
         return customerService.getAllCustomer();
@@ -38,6 +43,11 @@ public class CustomerController {
     @GetMapping("/searchByName")
     public List<CustomerDTO> searchByName(@RequestParam("name") String name){
         return customerService.searchCustomer(name);
+    }
+
+    @GetMapping("/searchById")
+    public CustomerDTO searchByID(@RequestParam("code")String code){
+        return customerService.searchCustomerById(code);
     }
 
     @GetMapping("/nextId")

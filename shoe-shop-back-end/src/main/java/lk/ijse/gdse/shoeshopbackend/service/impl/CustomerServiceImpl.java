@@ -44,7 +44,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public boolean deleteCustomer(String id) {
-        return false;
+        if (!customerRepo.existsById(id)) {
+            return false;
+        }
+        customerRepo.deleteById(id);
+        return !customerRepo.existsById(id);
     }
 
     @Override
@@ -54,7 +58,20 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<CustomerDTO> searchCustomer(String name) {
-        return customerRepo.findByName(name).stream().map(customer -> mapper.map(customer, CustomerDTO.class)).toList();
+        List<CustomerDTO> list = customerRepo.findByName(name).stream().map(customer -> mapper.map(customer, CustomerDTO.class)).toList();
+        return list;
+    }
+
+    @Override
+    public CustomerDTO searchCustomerById(String id) {
+        if (!customerRepo.existsById(id)){
+            throw new NotFoundException("Customer Id does not exists!");
+        }
+//        return customerRepo.findById(id).map(customer -> mapper.map(customer, CustomerDTO.class)).get();
+        Customer customer = customerRepo.findByCode(id);
+        System.out.println(customer);
+        return mapper.map(customer,CustomerDTO.class);
+
     }
 
     @Override

@@ -8,4 +8,6 @@ import java.util.List;
 public interface CustomerRepo extends JpaRepository<Customer,String> {
     Customer findTopByOrderByCodeDesc();
     List<Customer> findByName(String name);
+
+    Customer findByCode(String id);
 }

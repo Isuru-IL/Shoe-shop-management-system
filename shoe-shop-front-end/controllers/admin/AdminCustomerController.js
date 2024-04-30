@@ -24,6 +24,7 @@ function loadCustomerDataToTable(resp) {
     $.each(resp, function (index, customer) {
         let newGender = customerCapitalizeFirstLetter(customer.gender)
 
+
         if (customer.recentPurchaseDate===null){
             customer.recentPurchaseDate="No Purchases Yet";
         }
@@ -59,15 +60,20 @@ function loadNextCustomerId() {
     })
 }
 
-/*save customer*/
-$("#btnCustomerSave").click(function () {
-    saveCustomer();
-})
-
 $("#btnCustomerClear").click(function (){
     clearCusInputFields()
 })
 
+/*save customer*/
+$("#btnCustomerSave").click(function () {
+    if (checkAllCustomers()) {
+        if (checkCusEmptyInputFields()){
+            saveCustomer();
+        }
+    } else {
+        swal("Error", "Please check the input fields!", "error");
+    }
+})
 function saveCustomer() {
     let id = $("#txtCusCode").val();
     let name = $("#txtCusName").val();
@@ -89,10 +95,6 @@ function saveCustomer() {
     console.log(gender)
     console.log(loyaltyDate)*/
 
-    /*if (name===""|| email===""|| dob===""|| contact===""|| addLine01===""|| addLine02===""|| gender===null|| loyaltyDate===""){
-        swal("Error", "Fill all empty fields!", "error");
-        return
-    }*/
 
     const customerObj = {
         code:id,
@@ -117,9 +119,7 @@ function saveCustomer() {
         contentType: "application/json",
         success: function (resp, textStatus, jqxhr) {
             //console.log("customer save success: ", resp);
-            getAllCustomers();
             clearCusInputFields()
-            loadNextCustomerId();
             swal("Saved", "Customer saved successfully!", "success");
             /*$("#btnCustomerSave").prop("disabled", true);
             $("#btnCustomerUpdate").prop("disabled", true);
@@ -137,9 +137,14 @@ function saveCustomer() {
 
 /*update customer*/
 $("#btnCustomerUpdate").click(function () {
-    updateCustomer();
+    if (checkAllCustomers()) {
+        if (checkCusEmptyInputFields()){
+            updateCustomer();
+        }
+    } else {
+        swal("Error", "Please check the input fields!", "error");
+    }
 })
-
 function updateCustomer() {
     let id = $("#txtCusCode").val();
     let name = $("#txtCusName").val();
@@ -174,9 +179,7 @@ function updateCustomer() {
         contentType: "application/json",
         success: function (resp, textStatus, jqxhr) {
             //console.log("customer save success: ", resp);
-            getAllCustomers();
             clearCusInputFields()
-            loadNextCustomerId();
             swal("Updated", "Customer updated successfully!", "success");
             /*$("#btnCustomerSave").prop("disabled", true);
             $("#btnCustomerUpdate").prop("disabled", true);
@@ -192,21 +195,90 @@ function updateCustomer() {
     })
 }
 
+/*delete customer*/
+$("#btnCustomerDelete").click(function () {
+    let code = $("#txtCusCode").val();
+    if (code === ""){
+        swal("Error", "Please input valid Customer ID!", "error");
+        return;
+    }
+    deleteCustomer(code);
+})
+function deleteCustomer(code) {
+    $.ajax({
+        url: "http://localhost:8080/api/v1/customer/delete?code="+code,
+        method: "DELETE",
+        dataType: "json",
+        success: function (resp) {
+            console.log("resp = "+resp)
+            if (resp){
+                swal("Deleted", "Customer deleted successfully!", "success");
+                clearCusInputFields();
+                return;
+            }
+            swal("Error", "This customer does not exits!", "error");
+        },
+        error: function (xhr, status, error) {
+            console.log("cusSearchByName = "+error)
+        }
+    })
+}
+
+
 $("#btnCustomerSearch").click(function () {
-    if ($("#txtCustomerSearch").val()===""){
+    let searchValue = $("#txtCustomerSearch").val()
+    if (searchValue===""){
         swal("Error", "Please input Customer ID or Customer name!", "error");
         return;
     }
     let searchType = $("#cmbCustomerSearch").val();
+
     if (searchType === "ID"){
-        cusSearchById(searchType);
+        cusSearchById(searchValue);
     } else if(searchType === "Name"){
-        cusSearchByName(searchType);
+        cusSearchByName(searchValue);
     }
 })
 
-function cusSearchById(searchType) {
-
+function cusSearchById(code) {
+    $.ajax({
+        url: "http://localhost:8080/api/v1/customer/searchById?code="+code,
+        method: "GET",
+        dataType: "json",
+        success: function (resp) {
+            loadCustomerDataToTableById(resp);
+        },
+        error: function (xhr, textStatus, error) {
+            console.log("cusSearchById error: ", error);
+            console.log("cusSearchById error: ", xhr.status);
+            if (xhr.status===404){
+                swal("Error", "This customer does not exits!", "error");
+            }
+        }
+    })
+}
+function loadCustomerDataToTableById(customer) {
+    $("#tbody-customer").empty();
+    let newGender = customerCapitalizeFirstLetter(customer.gender)
+    if (customer.recentPurchaseDate===null){
+        customer.recentPurchaseDate="No Purchases Yet";
+    }
+    let row = `<tr>
+                                <th>${customer.code}</th>
+                                <td>${customer.name}</td>
+                                <td>${customer.email}</td>
+                                <td>${customer.dob}</td>
+                                <td>${customer.contact}</td>
+                                <td>${customer.addressLine1} ${customer.addressLine2}</td>
+                                <td>${newGender}</td>
+                                <td>${customer.loyaltyDate}</td>
+                                <td>${customer.loyaltyLevel}</td>
+                                <td>${customer.loyaltyPoints}</td>
+                                <td>${customer.recentPurchaseDate}</td>
+                                <td style="display: none">${customer.addressLine1}</td>
+                                <td style="display: none">${customer.addressLine2}</td>
+                              </tr>`;
+    $("#tbody-customer").append(row);
 }
 
 function cusSearchByName(name) {
@@ -215,7 +287,10 @@ function cusSearchByName(name) {
         method: "GET",
         dataType: "json",
         success: function (resp) {
-            console.log(resp)
+            if (resp.length === 0){
+                swal("Error", "Customer Name not found!", "error");
+                return;
+            }
             loadCustomerDataToTable(resp);
         },
         error: function (xhr, status, error) {
@@ -259,7 +334,22 @@ function clearCusInputFields() {
     $("#txtCusAddLine02").val("");
     $("#cmbCusGender").prop("selectedIndex", "Male");
     $("#txtCusLoyaltyDate").val("");
+
+    $("#txtCustomerSearch").val("");
+
+    $("#txtCusName,#txtCusEmail,#txtCusContact,#txtCusAddLine01,#txtCusAddLine02").css("border", "1px solid #ced4da");
+    setCustomerBtn();
+    loadNextCustomerId();
+    getAllCustomers();
 }
 function customerCapitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+
+function checkCusEmptyInputFields() {
+    if ($("#txtCusDob").val()==="" || $("#txtCusLoyaltyDate").val()===""){
+        swal("Error", "Fill all empty the fields!", "error");
+        return false;
+    }
+    return true
 }
