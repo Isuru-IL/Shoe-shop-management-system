@@ -29,6 +29,9 @@
                     <li id="admin-customer-nav" class="nav-item">
                         <a class=" nav-link fw-medium" href="#admin-customer-page" style="font-size: 15px">Customers</a>
                     </li>
+                    <li id="admin-employee-nav" class="nav-item">
+                        <a class="nav-link fw-medium" href="#admin-employee-page" style="font-size: 15px">Employees</a>
+                    </li>
                     <li id="admin-item-nav" class="nav-item">
                         <a class="nav-link fw-medium" href="" style="font-size: 15px">Items</a>
                     </li>
@@ -185,6 +188,200 @@
             </section>
         </section>
     </section>
+    <section id="admin-employee-page">
+        <section id="employee-title" class="d-flex mt-5 mb-4 justify-content-center">
+            <div class="rounded-pill w-75 bg-primary">
+                <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-users mx-2"></i>Manage Employees</h4>
+            </div>
+        </section>
+        <section id="employee-content" class="container-fluid py-4 rounded-4">
+            <section class="d-flex justify-content-around flex-column align-items-center gap-5 flex-wrap-reverse">
+                <!--input fields-->
+                <section id="employee-up-content" class="d-flex col-10 rounded-4 p-2 justify-content-around">
+                    <section class="row col-5 justify-content-center">
+                        <div class="row mb-3 mt-3 col-12">
+                            <label for="txtEmpCode" class="col-sm-3 col-form-label">Code</label>
+                            <div class="col-sm-9">
+                                <input disabled type="text" class="form-control" id="txtEmpCode">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtEmpName" class="col-sm-3 col-form-label">Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtEmpName">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtEmpEmail" class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="txtEmpEmail">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtEmpDob" class="col-sm-3 col-form-label">Date of birth</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="txtEmpDob">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtEmpDateOfJoin" class="col-sm-3 col-form-label">Date of Join</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="txtEmpDateOfJoin">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="cmbEmpGender" class="col-sm-3 col-form-label">Gender</label>
+                            <div class="col-sm-9">
+                                <select id="cmbEmpGender" class="form-select" aria-label="Default select example">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="cmbEmpCivilStatus" class="col-sm-3 col-form-label">Civil Status</label>
+                            <div class="col-sm-9">
+                                <select id="cmbEmpCivilStatus" class="form-select" aria-label="Default select example">
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Divorced">Divorced</option>
+                                    <option value="Widowed">Widowed</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="cmbEmpDesignation" class="col-sm-3 col-form-label">Designation</label>
+                            <div class="col-sm-9">
+                                <select id="cmbEmpDesignation" class="form-select" aria-label="Default select example">
+                                    <option value="Cashier">Cashier</option>
+                                    <option value="Supervisor">Supervisor</option>
+                                    <option value="Manager">Manager</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="cmbEmpAccessRole" class="col-sm-3 col-form-label">Role</label>
+                            <div class="col-sm-9">
+                                <select id="cmbEmpAccessRole" class="form-select" aria-label="Default select example">
+                                    <option value="User">User</option>
+                                    <option value="Admin">Admin</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="cmbEmpBranch" class="col-sm-3 col-form-label">Branch</label>
+                            <div class="col-sm-9">
+                                <select id="cmbEmpBranch" class="form-select" aria-label="Default select example">
+                                    <option value="Galle">Galle</option>
+                                    <option value="Matara">Matara</option>
+                                    <option value="Colombo">Colombo</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="row col-5 justify-content-center">
+                        <div id="employee-pro-pic-div" class="row mb-3 mt-3">
+
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtEmpProfilePic" class="col-sm-3 col-form-label">Profile Pic</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="file" id="txtEmpProfilePic">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtEmpAddLine01" class="col-sm-3 col-form-label">Address No.</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtEmpAddLine01">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtEmpAddLine02" class="col-sm-3 col-form-label">Address</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="txtEmpAddLine02">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtEmpContact" class="col-sm-3 col-form-label">Contact</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="txtEmpContact">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtEmpEmgContact" class="col-sm-3 col-form-label">Emergency Con.</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="txtEmpEmgContact">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtEmpGuardianName" class="col-sm-3 col-form-label">Guardian Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtEmpGuardianName">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <section class="d-flex flex-wrap justify-content-end gap-2">
+                                <button id="btnEmpSave" type="button" class="btn btn-outline-success">Save</button>
+                                <button id="btnEmpUpdate" type="button" class="btn btn-outline-primary">update</button>
+                                <button id="btnEmpDelete" type="button" class="btn btn-outline-danger">Delete</button>
+                            </section>
+                        </div>
+                    </section>
+                </section>
+
+
+                <!--table-->
+                <section id="Emp-search-content" class="col-12 col-sm-8 my-2">
+                    <section id="Emp-search">
+                        <form class="row gx-3 gy-2 align-items-center">
+                            <div class="col-sm-3">
+                                <label class="visually-hidden" for="cmbEmpSearch">Preference</label>
+                                <select class="form-select" id="cmbEmpSearch">
+                                    <option value="ID">ID</option>
+                                    <option value="Name">Name</option>
+                                </select>
+                            </div>
+                            <div class="w-50 col-sm-3">
+                                <label class="visually-hidden" for="txtEmpSearch">Name</label>
+                                <input type="text" class="form-control" id="txtEmpSearch" placeholder="Search employee">
+                            </div>
+                            <div class="col-auto">
+                                <button id="btnEmpSearch" type="button" class="btn btn-outline-primary">Search</button>
+                            </div>
+                            <div class="col-auto">
+                                <button id="btnEmpClear" type="button" class="btn btn-outline-warning">Clear</button>
+                            </div>
+                        </form>
+                    </section>
+                </section>
+                <!--                    table-->
+                <section id="employee-table" class="p-2 rounded-4 bg-light w-100">
+                    <table id="tableEmployee" class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="bg-primary text-white">Code</th>
+                            <th scope="col" class="bg-primary text-white">Pro Pic</th>
+                            <th scope="col" class="bg-primary text-white">Role</th>
+                            <th scope="col" class="bg-primary text-white">Name</th>
+                            <th scope="col" class="bg-primary text-white">Email</th>
+                            <th scope="col" class="bg-primary text-white">DoB</th>
+                            <th scope="col" class="bg-primary text-white">Contact</th>
+                            <th scope="col" class="bg-primary text-white">Address</th>
+                            <th scope="col" class="bg-primary text-white">Gender</th>
+                            <th scope="col" class="bg-primary text-white">Join Date</th>
+                            <th scope="col" class="bg-primary text-white">Civil Status</th>
+                            <th scope="col" class="bg-primary text-white">Designation</th>
+                            <th scope="col" class="bg-primary text-white">Branch</th>
+                            <th scope="col" class="bg-primary text-white">Emergency Con.</th>
+                            <th scope="col" class="bg-primary text-white">Guardian Name</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody-employee" class="table-group-divider"></tbody>
+                    </table>
+                </section>
+            </section>
+        </section>
+    </section>
 </main>
 
 <script src="../resources/bootstrap/js/bootstrap.js"></script>
@@ -192,6 +389,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="../../controllers/admin/AdminDashboardController.js"></script>
 <script src="../../controllers/admin/AdminCustomerController.js"></script>
+<script src="../../controllers/admin/AdminEmployeeController.js"></script>
 <script src="../../controllers/admin/validation/CustomerValidation.js"></script>
 </body>
 </html>

@@ -36,3 +36,23 @@ header #header-main-cover{
 #admin-customer-page #right-content{
     box-shadow: 0px 0px 8px 1px #0000007a;
 }
+
+/*employee-customer //////////////////////////////////*/
+#admin-employee-page{
+    display: none;
+}
+#admin-employee-page #employee-content{
+    box-shadow: 0px 0px 8px 1px #0000007a;
+    width: 90%;
+}
+#admin-employee-page #employee-up-content{
+    box-shadow: 0px 0px 8px 1px #0000007a;
+}
+
+#admin-employee-page #employee-pro-pic-div{
+    box-shadow: 0px 0px 2px 0.1px #0000007a;
+    width: 100px;
+    height: 100px;
+    border-radius: 1.4em;
+    padding: 0;
+}

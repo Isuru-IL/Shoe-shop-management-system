@@ -95,7 +95,6 @@ public class CustomerServiceImpl implements CustomerService {
         }
         id = prefix + String.format("%04d", nextNumericPart);
 
-        System.out.println("Customer next id ="+id);
         return id;
     }
 }

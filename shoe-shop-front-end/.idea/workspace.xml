@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0c0b568-ce36-4998-a697-66497518f100" name="Changes" comment="" />
+    <list default="true" id="a0c0b568-ce36-4998-a697-66497518f100" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/dto/EmployeeDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/entity/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/repository/EmployeeRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/EmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/resources/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/resources/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/AdminDashboardController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/AdminDashboardController.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +53,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/GDSE-66/Second Semester/AAD/CourseWork/Other/springboot final project/shoe managment frontend",
+    "last_opened_file_path": "D:/GDSE-66/Second Semester/AAD/CourseWork/Shoe-shop-management-system/shoe-shop-front-end",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -73,7 +85,8 @@
       <workItem from="1714372801700" duration="17236000" />
       <workItem from="1714411403854" duration="6400000" />
       <workItem from="1714453516833" duration="9046000" />
-      <workItem from="1714469359098" duration="4696000" />
+      <workItem from="1714469359098" duration="9598000" />
+      <workItem from="1714492361709" duration="10139000" />
     </task>
     <servers />
   </component>
