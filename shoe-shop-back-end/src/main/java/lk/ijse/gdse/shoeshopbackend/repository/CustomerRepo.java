@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CustomerRepo extends JpaRepository<Customer,String> {
     Customer findTopByOrderByCodeDesc();
-    List<Customer> findByNameStartingWith(String name);
+    List<Customer> findByName(String name);
 }

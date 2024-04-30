@@ -5,6 +5,7 @@ import lk.ijse.gdse.shoeshopbackend.entity.Customer;
 import lk.ijse.gdse.shoeshopbackend.repository.CustomerRepo;
 import lk.ijse.gdse.shoeshopbackend.service.CustomerService;
 import lk.ijse.gdse.shoeshopbackend.service.exception.DuplicateRecordException;
+import lk.ijse.gdse.shoeshopbackend.service.exception.NotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,16 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO updateCustomer(CustomerDTO customerDTO) {
-        return null;
+        if (!customerRepo.existsById(customerDTO.getCode())){
+            throw new NotFoundException("Customer Id does not exists!");
+        }
+        Customer customer = customerRepo.findById(customerDTO.getCode()).get();
+        System.out.println("update customer ="+customer);
+        customerDTO.setLoyaltyLevel(customer.getLoyaltyLevel());
+        customerDTO.setLoyaltyPoints(customer.getLoyaltyPoints());
+        customerDTO.setRecentPurchaseDate(customer.getRecentPurchaseDate());
+
+        return mapper.map(customerRepo.save(mapper.map(customerDTO, Customer.class)), CustomerDTO.class);
     }
 
     @Override
@@ -39,12 +49,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<CustomerDTO> getAllCustomer() {
-        return null;
+        return customerRepo.findAll().stream().map(customer -> mapper.map(customer,CustomerDTO.class)).toList();
     }
 
     @Override
     public List<CustomerDTO> searchCustomer(String name) {
-        return null;
+        return customerRepo.findByName(name).stream().map(customer -> mapper.map(customer, CustomerDTO.class)).toList();
     }
 
     @Override
@@ -66,8 +76,9 @@ public class CustomerServiceImpl implements CustomerService {
         } else {
             nextNumericPart = 1;
         }
-        id = prefix + String.format("%03d", nextNumericPart);
+        id = prefix + String.format("%04d", nextNumericPart);
 
+        System.out.println("Customer next id ="+id);
         return id;
     }
 }

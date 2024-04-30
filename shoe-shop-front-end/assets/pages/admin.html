@@ -65,34 +65,81 @@
         <section id="customer-content" class="container-fluid py-4 rounded-4">
             <section class="d-flex justify-content-around flex-column align-items-center gap-5 flex-wrap-reverse">
                 <!--input fields-->
-                <section id="right-content" class="d-flex col-8 col-sm-4 col-md-3 justify-content-end rounded-4">
-                    <section class="col-8 p-2 bg-light rounded-4 w-100">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="txtCustomerID" placeholder="name@example.com">
-                            <label for="txtCustomerID">Customer ID</label>
+                <section id="right-content" class="d-flex col-10 rounded-4 p-2 justify-content-around">
+                    <section class="row col-5">
+                        <div class="row mb-3 mt-3 col-12">
+                            <label for="txtCusCode" class="col-sm-3 col-form-label">Code</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtCusCode">
+                            </div>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="txtCustomerName" placeholder="name@example.com">
-                            <label for="txtCustomerName">Customer Name</label>
+                        <div class="row mb-3 col-12">
+                            <label for="txtCusName" class="col-sm-3 col-form-label">Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtCusName">
+                            </div>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="txtCustomerAddress" placeholder="name@example.com">
-                            <label for="txtCustomerAddress">Address</label>
+                        <div class="row mb-3 col-12">
+                            <label for="txtCusEmail" class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="txtCusEmail">
+                            </div>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="txtCustomerConNum" placeholder="name@example.com">
-                            <label for="txtCustomerConNum">Contact Num.</label>
+                        <div class="row mb-3 col-12">
+                            <label for="txtCusDob" class="col-sm-3 col-form-label">Date of birth</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="txtCusDob">
+                            </div>
                         </div>
-                        <section class="d-flex flex-wrap justify-content-center gap-2">
-                            <button id="btnCustomerSave" type="button" class="btn btn-outline-success">Save</button>
-                            <button id="btnCustomerUpdate" type="button" class="btn btn-outline-primary">update</button>
-                            <button id="btnCustomerDelete" type="button" class="btn btn-outline-danger">Delete</button>
-                        </section>
+                        <div class="row mb-3 col-12">
+                            <label for="txtCusContact" class="col-sm-3 col-form-label">Contact</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="txtCusContact">
+                            </div>
+                        </div>
+                    </section>
+                    <section class="row col-5">
+                        <div class="row mb-3 mt-3 col-12">
+                            <label for="txtCusAddLine01" class="col-sm-3 col-form-label">Address No.</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtCusAddLine01">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtCusAddLine02" class="col-sm-3 col-form-label">Address</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="txtCusAddLine02">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="cmbCusGender" class="col-sm-3 col-form-label">Gender</label>
+                            <div class="col-sm-9">
+                                <select id="cmbCusGender" class="form-select" aria-label="Default select example">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtCusLoyaltyDate" class="col-sm-3 col-form-label">Loyalty Date</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="txtCusLoyaltyDate">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <section class="d-flex flex-wrap justify-content-end gap-2">
+                                <button id="btnCustomerSave" type="button" class="btn btn-outline-success">Save</button>
+                                <button id="btnCustomerUpdate" type="button" class="btn btn-outline-primary">update</button>
+                                <button id="btnCustomerDelete" type="button" class="btn btn-outline-danger">Delete</button>
+                            </section>
+                        </div>
                     </section>
                 </section>
+
+
                 <!--table-->
-                <section id="left-content" class="col-12 col-sm-8 my-2">
-                    <section id="customer-search" class="mb-5">
+                <section id="cus-search-content" class="col-12 col-sm-8 my-2">
+                    <section id="customer-search">
                         <form class="row gx-3 gy-2 align-items-center">
                             <div class="col-sm-3">
                                 <label class="visually-hidden" for="cmbCustomerSearch">Preference</label>
@@ -113,22 +160,27 @@
                             </div>
                         </form>
                     </section>
-
-                    <!--                    table-->
-                    <section id="customer-table" class="p-2 rounded-4 bg-light">
-                        <table id="tableCustomer" class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col" class="bg-primary text-white">ID</th>
-                                <th scope="col" class="bg-primary text-white">Name</th>
-                                <th scope="col" class="bg-primary text-white">Address</th>
-                                <th scope="col" class="bg-primary text-white">Salary</th>
-                            </tr>
-                            </thead>
-                            <tbody id="tbody-customer" class="table-group-divider"></tbody>
-                        </table>
-                    </section>
-
+                </section>
+                <!--                    table-->
+                <section id="customer-table" class="p-2 rounded-4 bg-light w-100">
+                    <table id="tableCustomer" class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="bg-primary text-white">Code</th>
+                            <th scope="col" class="bg-primary text-white">Name</th>
+                            <th scope="col" class="bg-primary text-white">Email</th>
+                            <th scope="col" class="bg-primary text-white">DoB</th>
+                            <th scope="col" class="bg-primary text-white">Contact</th>
+                            <th scope="col" class="bg-primary text-white">Address</th>
+                            <th scope="col" class="bg-primary text-white">Gender</th>
+                            <th scope="col" class="bg-primary text-white">Loyalty Date</th>
+                            <th scope="col" class="bg-primary text-white">Loyalty Level</th>
+                            <th scope="col" class="bg-primary text-white">Loyalty Points</th>
+                            <th scope="col" class="bg-primary text-white">Recent Purchase Date</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody-customer" class="table-group-divider"></tbody>
+                    </table>
                 </section>
             </section>
         </section>
@@ -137,6 +189,7 @@
 
 <script src="../resources/bootstrap/js/bootstrap.js"></script>
 <script src="../resources/bootstrap/js/jquery-3.7.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="../../controllers/admin/AdminDashboardController.js"></script>
 <script src="../../controllers/admin/AdminCustomerController.js"></script>
 </body>

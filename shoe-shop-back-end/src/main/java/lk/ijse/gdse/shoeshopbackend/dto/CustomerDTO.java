@@ -25,6 +25,6 @@ public class CustomerDTO {
     private String addressLine2;
     private Date loyaltyDate;
     private CustomerLoyaltyLevel loyaltyLevel;
-    private Integer loyaltyPoint;
+    private Integer loyaltyPoints;
     private Timestamp recentPurchaseDate;
 }
