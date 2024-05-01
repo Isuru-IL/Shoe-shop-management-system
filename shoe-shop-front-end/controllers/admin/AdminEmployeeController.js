@@ -5,7 +5,6 @@ function employeeInitialize() {
 getAllEmployee();
 loadNextCustomerId();
 
-
 /*save employee*/
 $("#btnEmpSave").click(function () {
     saveEmployee();
@@ -57,7 +56,7 @@ function saveEmployee() {
         data: formData,
         success: function (resp, textStatus, jqxhr) {
             //console.log("customer save success: ", resp);
-            //clearCusInputFields()
+            clearEmpInputFields()
             swal("Saved", "Employee saved successfully!", "success");
             /*$("#btnCustomerSave").prop("disabled", true);
             $("#btnCustomerUpdate").prop("disabled", true);
@@ -72,6 +71,109 @@ function saveEmployee() {
         }
     })
 }
+
+
+$("#btnEmpUpdate").click(function () {
+    updateEmployee();
+})
+function updateEmployee() {
+    let code = $("#txtEmpCode").val();
+    let name = $("#txtEmpName").val();
+    let gender = $("#cmbEmpGender").val();
+    let civilStatus = $("#cmbEmpCivilStatus").val();
+    let designation = $("#cmbEmpDesignation").val();
+    let role = $("#cmbEmpAccessRole").val();
+    let dob = $("#txtEmpDob").val();
+    let joinDate = $("#txtEmpDateOfJoin").val();
+    let branch = $("#cmbEmpBranch").val();
+    let addressLine1 = $("#txtEmpAddLine01").val();
+    let addressLine2 = $("#txtEmpAddLine02").val();
+    let contact = $("#txtEmpContact").val();
+    let email = $("#txtEmpEmail").val();
+    let guardianName = $("#txtEmpGuardianName").val();
+    let emergencyContact = $("#txtEmpEmgContact").val();
+
+    var formData = new FormData();
+    formData.append('code',code);
+    formData.append('name',name);
+    formData.append('gender',gender.toUpperCase());
+    formData.append('civilStatus',civilStatus);
+    formData.append('designation',designation);
+    formData.append('role',role.toUpperCase());
+    formData.append('dob',dob);
+    formData.append('joinDate',joinDate);
+    formData.append('branch',branch);
+    formData.append('addressLine1',addressLine1);
+    formData.append('addressLine2',addressLine2);
+    formData.append('contact',contact);
+    formData.append('email',email);
+    formData.append('guardianName',guardianName);
+    formData.append('emergencyContact',emergencyContact);
+    // formData.append('proPic',proPic);
+
+    let proPicInput = $('#txtEmpProfilePic')[0];
+    if (proPicInput.files.length > 0) {
+        formData.append('proPic', proPicInput.files[0]);
+    }
+    console.log("proPic = "+proPicInput);
+
+    console.log(formData)
+
+    $.ajax({
+        url: "http://localhost:8080/api/v1/employee/update",
+        method: "PATCH",
+        processData: false,
+        contentType: false,
+        data: formData,
+        success: function (resp, textStatus, jqxhr) {
+            //console.log("customer save success: ", resp);
+            clearEmpInputFields()
+            swal("Saved", "Employee updated successfully!", "success");
+            /*$("#btnCustomerSave").prop("disabled", true);
+            $("#btnCustomerUpdate").prop("disabled", true);
+            $("#btnCustomerDelete").prop("disabled", true);*/
+        },
+        error: function (xhr, textStatus, error) {
+            console.log("eSave error: ", error);
+            console.log("eSave error: ", xhr.status);
+            if (xhr.status === 404) {
+                swal('Error', 'This employee does not exist!', 'error');
+            } else {
+                swal('Error', 'Failed to update employee.', 'error');
+            }
+        }
+    })
+}
+
+
+$("#btnEmpDelete").click(function () {
+    let code = $("#txtEmpCode").val();
+    if (code === "") {
+        swal("Error", "Please input valid Employee ID!", "error");
+        return;
+    }
+    deleteEmployee(code);
+})
+function deleteEmployee(code) {
+    $.ajax({
+        url: "http://localhost:8080/api/v1/employee/delete?code="+code,
+        method: "DELETE",
+        dataType: "json",
+        success: function (resp) {
+            console.log("resp = "+resp)
+            if (resp){
+                swal("Deleted", "Employee deleted successfully!", "success");
+                clearEmpInputFields();
+                return;
+            }
+            swal("Error", "This employee does not exits!", "error");
+        },
+        error: function (xhr, status, error) {
+            console.log("empDelete = "+error)
+        }
+    })
+}
+
 function getAllEmployee() {
     $.ajax({
         url: "http://localhost:8080/api/v1/employee/getAllEmployees",
@@ -92,10 +194,10 @@ function loadEmployeeDataToTable(resp) {
         let newGender = employeeCapitalizeFirstLetter(employee.gender)
         let newRole = employeeCapitalizeFirstLetter(employee.role)
 
-        console.log("proPic = "+employee.proPic)
-        let row = `<tr>
+        //console.log("proPic = "+employee.proPic)
+        let row = `<tr style="vertical-align: middle;">
                                 <th>${employee.code}</th>
-                                <td><img alt="image" src="data:image/png;base64,${employee.proPic}" style="max-width: 50px; height: auto; border-radius: 10px;"></td>
+                                <td><img alt="image" src="data:image/png;base64,${employee.proPic}" style="max-width: 50px; height: 50px; border-radius: 10px;"></td>
                                 <td>${newRole}</td>
                                 <td>${employee.name}</td>
                                 <td>${employee.email}</td>
@@ -123,7 +225,7 @@ $("#tbody-employee").on('click', 'tr', function (){
     let row = $(this)
 
     var code = row.children().eq(0).text();
-    var proPic = row.children().eq(1).text();
+    var proPic = row.children().eq(1).html();
     var role = row.children().eq(2).text();
     var name = row.children().eq(3).text();
     var email = row.children().eq(4).text();
@@ -141,6 +243,36 @@ $("#tbody-employee").on('click', 'tr', function (){
 
     /*$("#btnCustomerSave").prop("disabled", true);*/
 
+    var base64Data;
+    var matches = proPic.match(/src="data:image\/png;base64,([^"]+)"/);
+    if (matches) {
+        base64Data = matches[1];
+        console.log(base64Data);
+
+        // Decode base64 data into a blob
+        var byteCharacters = atob(base64Data);
+        var byteNumbers = new Array(byteCharacters.length);
+        for (var i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        var byteArray = new Uint8Array(byteNumbers);
+        var blob = new Blob([byteArray], { type: 'image/png' });
+
+        // Create a file from the blob
+        var file = new File([blob], 'image.png', { type: 'image/png' });
+        console.log(file)
+
+        var dataTransfer = new DataTransfer();
+        dataTransfer.items.add(file);
+
+        // Set the files property of the file chooser input field using the files property of the DataTransfer object
+        var fileInput = document.getElementById('txtEmpProfilePic');
+        fileInput.files = dataTransfer.files;
+
+    } else {
+        console.log("No image data found in the table cell.");
+    }
+
     $("#txtEmpCode").val(code);
     $("#txtEmpName").val(name);
     $("#cmbEmpGender").val(gender);
@@ -157,11 +289,38 @@ $("#tbody-employee").on('click', 'tr', function (){
     $("#txtEmpGuardianName").val(guardianName);
     $("#txtEmpEmgContact").val(emergencyContact);
 
-    console.log("afterProPic = "+proPic)
+    empSearchById(code);
+})
+
+
+function setEmpImage(resp) {
+    $("#employee-pro-pic-div").empty();
+    var proPic = resp.proPic;
+    console.log("table click = "+proPic)
 
     var imageElement = `<img alt="image" src="data:image/png;base64,${proPic}" style="max-width: 100px; height: auto; padding: 0; border-radius: 1.4em;">`
     $("#employee-pro-pic-div").append(imageElement);
-})
+}
+
+function empSearchById(code) {
+    $.ajax({
+        url: "http://localhost:8080/api/v1/employee/searchById?code="+code,
+        method: "GET",
+        dataType: "json",
+        success: function (resp) {
+            console.log(resp)
+            setEmpImage(resp);
+            //loadEmployeeDataToTableById(resp);
+        },
+        error: function (xhr, textStatus, error) {
+            console.log("empSearchById error: ", error);
+            console.log("empSearchById error: ", xhr.status);
+            if (xhr.status===404){
+                swal("Error", "This customer does not exits!", "error");
+            }
+        }
+    })
+}
 
 function loadNextEmployeeId() {
     $.ajax({
@@ -176,6 +335,52 @@ function loadNextEmployeeId() {
     })
 }
 
+$('#txtEmpProfilePic').on('change', function(event) {
+    if ($('#txtEmpProfilePic').val() !== ""){
+        $("#employee-pro-pic-div").empty();
+        var file = $(this).prop('files')[0];
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            var imageElement = `<img alt="image" src="${e.target.result}" style="max-width: 100px; height: auto; padding: 0; border-radius: 1.4em;">`;
+            $("#employee-pro-pic-div").append(imageElement);
+        };
+
+        reader.readAsDataURL(file);
+    }
+    $("#employee-pro-pic-div").empty();
+});
+
+$("#btnEmpClear").click(function (){
+    clearEmpInputFields();
+})
+
+function clearEmpInputFields() {
+    $("#txtEmpName").val("");
+    $("#cmbEmpGender").prop("selectedIndex", "Male");
+    $("#cmbEmpCivilStatus").prop("selectedIndex", "Cashier");
+    $("#cmbEmpDesignation").prop("selectedIndex", "Cashier");
+    $("#cmbEmpAccessRole").prop("selectedIndex", "User");
+    $("#txtEmpDob").val("");
+    $("#txtEmpDateOfJoin").val("");
+    $("#cmbEmpBranch").prop("selectedIndex", "Galle");
+    $("#txtEmpAddLine01").val("");
+    $("#txtEmpAddLine02").val("");
+    $("#txtEmpContact").val("");
+    $("#txtEmpEmail").val("");
+    $("#txtEmpGuardianName").val("");
+    $("#txtEmpEmgContact").val("");
+    $('#txtEmpProfilePic').val("");
+
+    $("#employee-pro-pic-div").empty();
+
+    $("#txtEmpSearch").val("");
+
+    //$("#txtCusName,#txtCusEmail,#txtCusContact,#txtCusAddLine01,#txtCusAddLine02").css("border", "1px solid #ced4da");
+    //setCustomerBtn();
+    loadNextEmployeeId();
+    getAllEmployee();
+}
 
 function employeeCapitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();

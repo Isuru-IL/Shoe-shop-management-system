@@ -33,12 +33,20 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeDTO updateEmployee(EmployeeDTO employeeDTO) {
-        return null;
+        if (!employeeRepo.existsById(employeeDTO.getCode())){
+            throw new NotFoundException("Employee Id does not exists!");
+        }
+
+        return mapper.map(employeeRepo.save(mapper.map(employeeDTO, Employee.class)), EmployeeDTO.class);
     }
 
     @Override
     public boolean deleteEmployee(String id) {
-        return false;
+        if (!employeeRepo.existsById(id)) {
+            return false;
+        }
+        employeeRepo.deleteById(id);
+        return !employeeRepo.existsById(id);
     }
 
     @Override
@@ -58,7 +66,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
 //        return customerRepo.findById(id).map(customer -> mapper.map(customer, CustomerDTO.class)).get();
         Employee employee = employeeRepo.findByCode(id);
-        System.out.println(employee);
+        System.out.println(employee.getCode());
         return mapper.map(employee,EmployeeDTO.class);
     }
 
