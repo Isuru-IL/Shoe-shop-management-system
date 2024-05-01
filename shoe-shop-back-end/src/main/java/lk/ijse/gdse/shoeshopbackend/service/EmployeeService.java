@@ -9,7 +9,7 @@ public interface EmployeeService {
     EmployeeDTO updateEmployee(EmployeeDTO employeeDTO);
     boolean deleteEmployee(String id);
     List<EmployeeDTO> getAllEmployee();
-    List<EmployeeDTO> searchCustomer(String name);
+    List<EmployeeDTO> searchEmployee(String name);
     EmployeeDTO searchEmployeeById(String id);
     String generateNextId();
 }

@@ -7,7 +7,13 @@ loadNextCustomerId();
 
 /*save employee*/
 $("#btnEmpSave").click(function () {
-    saveEmployee();
+    if (checkAllEmployees()) {
+        if (checkEmpEmptyInputFields()){
+            saveEmployee();
+        }
+    } else {
+        swal("Error", "Please check the input fields!", "error");
+    }
 })
 function saveEmployee() {
     let code = $("#txtEmpCode").val();
@@ -74,7 +80,13 @@ function saveEmployee() {
 
 
 $("#btnEmpUpdate").click(function () {
-    updateEmployee();
+    if (checkAllEmployees()) {
+        if (checkEmpEmptyInputFields()){
+            updateEmployee();
+        }
+    } else {
+        swal("Error", "Please check the input fields!", "error");
+    }
 })
 function updateEmployee() {
     let code = $("#txtEmpCode").val();
@@ -188,39 +200,6 @@ function getAllEmployee() {
     })
 }
 
-function loadEmployeeDataToTable(resp) {
-    $("#tbody-employee").empty();
-    $.each(resp, function (index, employee) {
-        let newGender = employeeCapitalizeFirstLetter(employee.gender)
-        let newRole = employeeCapitalizeFirstLetter(employee.role)
-
-        //console.log("proPic = "+employee.proPic)
-        let row = `<tr style="vertical-align: middle;">
-                                <th>${employee.code}</th>
-                                <td><img alt="image" src="data:image/png;base64,${employee.proPic}" style="max-width: 50px; height: 50px; border-radius: 10px;"></td>
-                                <td>${newRole}</td>
-                                <td>${employee.name}</td>
-                                <td>${employee.email}</td>
-                                <td>${employee.dob}</td>
-                                <td>${employee.contact}</td>
-                                <td>${employee.addressLine1} ${employee.addressLine2}</td>
-                                <td>${newGender}</td>
-                                <td>${employee.joinDate}</td>
-                                <td>${employee.civilStatus}</td>
-                                <td>${employee.designation}</td>
-                                <td>${employee.branch}</td>
-                                <td>${employee.emergencyContact}</td>
-                                <td>${employee.guardianName}</td>
-                                <td style="display: none">${employee.addressLine1}</td>
-                                <td style="display: none">${employee.addressLine2}</td>
-                              </tr>`;
-        $("#tbody-employee").append(row);
-
-        /*var imageElement = `<img alt="image" src="data:image/png;base64,${employee.proPic}" style="max-width: 100px; height: auto; padding: 0; border-radius: 1.4em;">`
-        $("#employee-pro-pic-div").append(imageElement);*/
-    })
-}
-
 $("#tbody-employee").on('click', 'tr', function (){
     let row = $(this)
 
@@ -289,18 +268,27 @@ $("#tbody-employee").on('click', 'tr', function (){
     $("#txtEmpGuardianName").val(guardianName);
     $("#txtEmpEmgContact").val(emergencyContact);
 
-    empSearchById(code);
+    empProPicSearchById(code);
 })
 
 
 function setEmpImage(resp) {
     $("#employee-pro-pic-div").empty();
     var proPic = resp.proPic;
-    console.log("table click = "+proPic)
+    //console.log("table click = "+proPic)
 
     var imageElement = `<img alt="image" src="data:image/png;base64,${proPic}" style="max-width: 100px; height: auto; padding: 0; border-radius: 1.4em;">`
     $("#employee-pro-pic-div").append(imageElement);
 }
+
+$("#btnEmpSearch").click(function () {
+    let searchValue = $("#txtEmpSearch").val()
+    if (searchValue===""){
+        swal("Error", "Please input Employee ID!", "error");
+        return;
+    }
+    empSearchById(searchValue);
+})
 
 function empSearchById(code) {
     $.ajax({
@@ -308,15 +296,33 @@ function empSearchById(code) {
         method: "GET",
         dataType: "json",
         success: function (resp) {
-            console.log(resp)
+            //console.log(resp)
             setEmpImage(resp);
-            //loadEmployeeDataToTableById(resp);
+            loadEmployeeDataToTableById(resp);
         },
         error: function (xhr, textStatus, error) {
             console.log("empSearchById error: ", error);
             console.log("empSearchById error: ", xhr.status);
             if (xhr.status===404){
-                swal("Error", "This customer does not exits!", "error");
+                swal("Error", "This employee does not exits!", "error");
+            }
+        }
+    })
+}
+
+function empProPicSearchById(code) {
+    $.ajax({
+        url: "http://localhost:8080/api/v1/employee/searchById?code="+code,
+        method: "GET",
+        dataType: "json",
+        success: function (resp) {
+            setEmpImage(resp);
+        },
+        error: function (xhr, textStatus, error) {
+            console.log("empSearchById error: ", error);
+            console.log("empSearchById error: ", xhr.status);
+            if (xhr.status===404){
+                swal("Error", "This employee does not exits!", "error");
             }
         }
     })
@@ -355,6 +361,67 @@ $("#btnEmpClear").click(function (){
     clearEmpInputFields();
 })
 
+function loadEmployeeDataToTableById(employee) {
+    $("#tbody-employee").empty();
+    let newGender = employeeCapitalizeFirstLetter(employee.gender)
+    let newRole = employeeCapitalizeFirstLetter(employee.role)
+
+    //console.log("proPic = "+employee.proPic)
+    let row = `<tr style="vertical-align: middle;">
+                                <th>${employee.code}</th>
+                                <td><img alt="image" src="data:image/png;base64,${employee.proPic}" style="max-width: 50px; height: 50px; border-radius: 10px;"></td>
+                                <td>${newRole}</td>
+                                <td>${employee.name}</td>
+                                <td>${employee.email}</td>
+                                <td>${employee.dob}</td>
+                                <td>${employee.contact}</td>
+                                <td>${employee.addressLine1} ${employee.addressLine2}</td>
+                                <td>${newGender}</td>
+                                <td>${employee.joinDate}</td>
+                                <td>${employee.civilStatus}</td>
+                                <td>${employee.designation}</td>
+                                <td>${employee.branch}</td>
+                                <td>${employee.emergencyContact}</td>
+                                <td>${employee.guardianName}</td>
+                                <td style="display: none">${employee.addressLine1}</td>
+                                <td style="display: none">${employee.addressLine2}</td>
+                              </tr>`;
+    $("#tbody-employee").append(row);
+}
+
+function loadEmployeeDataToTable(resp) {
+    $("#tbody-employee").empty();
+    $.each(resp, function (index, employee) {
+        let newGender = employeeCapitalizeFirstLetter(employee.gender)
+        let newRole = employeeCapitalizeFirstLetter(employee.role)
+
+        //console.log("proPic = "+employee.proPic)
+        let row = `<tr style="vertical-align: middle;">
+                                <th>${employee.code}</th>
+                                <td><img alt="image" src="data:image/png;base64,${employee.proPic}" style="max-width: 50px; height: 50px; border-radius: 10px;"></td>
+                                <td>${newRole}</td>
+                                <td>${employee.name}</td>
+                                <td>${employee.email}</td>
+                                <td>${employee.dob}</td>
+                                <td>${employee.contact}</td>
+                                <td>${employee.addressLine1} ${employee.addressLine2}</td>
+                                <td>${newGender}</td>
+                                <td>${employee.joinDate}</td>
+                                <td>${employee.civilStatus}</td>
+                                <td>${employee.designation}</td>
+                                <td>${employee.branch}</td>
+                                <td>${employee.emergencyContact}</td>
+                                <td>${employee.guardianName}</td>
+                                <td style="display: none">${employee.addressLine1}</td>
+                                <td style="display: none">${employee.addressLine2}</td>
+                              </tr>`;
+        $("#tbody-employee").append(row);
+
+        /*var imageElement = `<img alt="image" src="data:image/png;base64,${employee.proPic}" style="max-width: 100px; height: auto; padding: 0; border-radius: 1.4em;">`
+        $("#employee-pro-pic-div").append(imageElement);*/
+    })
+}
+
 function clearEmpInputFields() {
     $("#txtEmpName").val("");
     $("#cmbEmpGender").prop("selectedIndex", "Male");
@@ -384,4 +451,14 @@ function clearEmpInputFields() {
 
 function employeeCapitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+
+function checkEmpEmptyInputFields() {
+    if ($("#txtEmpDob").val()==="" || $("#txtEmpDateOfJoin").val()==="" || $("#cmbEmpGender").val()===""
+        || $("#cmbEmpCivilStatus").val()===""|| $("#cmbEmpDesignation").val()===""|| $("#cmbEmpAccessRole").val()===""
+        || $("#cmbEmpBranch").val()===""|| $("#txtEmpProfilePic").val()===""){
+        swal("Error", "Fill all empty the fields!", "error");
+        return false;
+    }
+    return true
 }

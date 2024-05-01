@@ -35,6 +35,9 @@
                     <li id="admin-item-nav" class="nav-item">
                         <a class="nav-link fw-medium" href="" style="font-size: 15px">Items</a>
                     </li>
+                    <li id="admin-supplier-nav" class="nav-item">
+                        <a class="nav-link fw-medium" href="#admin-supplier-page" style="font-size: 15px">Suppliers</a>
+                    </li>
                     <li id="admin-order-nav" class="nav-item">
                         <a class="nav-link fw-medium" href="" style="font-size: 15px">Place Orders</a>
                     </li>
@@ -338,7 +341,6 @@
                                 <label class="visually-hidden" for="cmbEmpSearch">Preference</label>
                                 <select class="form-select" id="cmbEmpSearch">
                                     <option value="ID">ID</option>
-                                    <option value="Name">Name</option>
                                 </select>
                             </div>
                             <div class="w-50 col-sm-3">
@@ -382,6 +384,126 @@
             </section>
         </section>
     </section>
+    <section id="admin-supplier-page">
+        <section id="supplier-title" class="d-flex mt-5 mb-4 justify-content-center">
+            <div class="rounded-pill w-75 bg-primary">
+                <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-users mx-2"></i>Manage Suppliers</h4>
+            </div>
+        </section>
+        <section id="supplier-content" class="container-fluid py-4 rounded-4">
+            <section class="d-flex justify-content-around flex-column align-items-center gap-5 flex-wrap-reverse">
+                <!--input fields-->
+                <section id="supplier-up-content" class="d-flex col-10 rounded-4 p-2 justify-content-around">
+                    <section class="row col-5">
+                        <div class="row mt-3 col-12">
+                            <label for="txtSupCode" class="col-sm-3 col-form-label">Code</label>
+                            <div class="col-sm-9">
+                                <input disabled type="text" class="form-control" id="txtSupCode">
+                            </div>
+                        </div>
+                        <div class="row col-12">
+                            <label for="txtSupName" class="col-sm-3 col-form-label">Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtSupName">
+                            </div>
+                        </div>
+                        <div class="row col-12">
+                            <label for="txtSupEmail" class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="txtSupEmail">
+                            </div>
+                        </div>
+                        <div class="row col-12">
+                            <label for="cmbSupCategory" class="col-sm-3 col-form-label">Category</label>
+                            <div class="col-sm-9">
+                                <select id="cmbSupCategory" class="form-select" aria-label="Default select example">
+                                    <option value="Local">Local</option>
+                                    <option value="International">International</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </section>
+                    <section class="row col-5">
+                        <div class="row mb-3 mt-3 col-12">
+                            <label for="txtSupAddLine01" class="col-sm-3 col-form-label">Address No.</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtSupAddLine01">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtSupAddLine02" class="col-sm-3 col-form-label">Address</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="txtSupAddLine02">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtSupMobile" class="col-sm-3 col-form-label">Mobile No.</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="txtSupMobile">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtSupLandLine" class="col-sm-3 col-form-label">LandLine No.</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="txtSupLandLine">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <section class="d-flex flex-wrap justify-content-end gap-2">
+                                <button id="btnSupSave" type="button" class="btn btn-outline-success">Save</button>
+                                <button id="btnSupUpdate" type="button" class="btn btn-outline-primary">update</button>
+                                <button id="btnSupDelete" type="button" class="btn btn-outline-danger">Delete</button>
+                            </section>
+                        </div>
+                    </section>
+                </section>
+
+
+                <!--table-->
+                <section id="supplier-search-content" class="col-12 col-sm-8 my-2">
+                    <section id="supplier-search">
+                        <form class="row gx-3 gy-2 align-items-center">
+                            <div class="col-sm-3">
+                                <label class="visually-hidden" for="cmbCustomerSearch">Preference</label>
+                                <select class="form-select" id="cmbSupplierSearch">
+                                    <option value="ID">ID</option>
+                                    <option value="Name">Name</option>
+                                </select>
+                            </div>
+                            <div class="w-50 col-sm-3">
+                                <label class="visually-hidden" for="txtCustomerSearch">Name</label>
+                                <input type="text" class="form-control" id="txtSupplierSearch" placeholder="Search customer">
+                            </div>
+                            <div class="col-auto">
+                                <button id="btnSupplierSearch" type="button" class="btn btn-outline-primary">Search</button>
+                            </div>
+                            <div class="col-auto">
+                                <button id="btnSupplierClear" type="button" class="btn btn-outline-warning">Clear</button>
+                            </div>
+                        </form>
+                    </section>
+                </section>
+                <!--                    table-->
+                <section id="supplier-table" class="p-2 rounded-4 bg-light w-100">
+                    <table id="tableSupplier" class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="bg-primary text-white">Code</th>
+                            <th scope="col" class="bg-primary text-white">Name</th>
+                            <th scope="col" class="bg-primary text-white">Email</th>
+                            <th scope="col" class="bg-primary text-white">Category</th>
+                            <th scope="col" class="bg-primary text-white">Address</th>
+                            <th scope="col" class="bg-primary text-white">Mobile No.</th>
+                            <th scope="col" class="bg-primary text-white">LandLine No.</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody-supplier" class="table-group-divider"></tbody>
+                    </table>
+                </section>
+            </section>
+        </section>
+    </section>
 </main>
 
 <script src="../resources/bootstrap/js/bootstrap.js"></script>
@@ -390,6 +512,9 @@
 <script src="../../controllers/admin/AdminDashboardController.js"></script>
 <script src="../../controllers/admin/AdminCustomerController.js"></script>
 <script src="../../controllers/admin/AdminEmployeeController.js"></script>
+<script src="../../controllers/admin/AdminSupplierController.js"></script>
 <script src="../../controllers/admin/validation/CustomerValidation.js"></script>
+<script src="../../controllers/admin/validation/EmployeeValidation.js"></script>
+<script src="../../controllers/admin/validation/SupplierValidation.js"></script>
 </body>
 </html>

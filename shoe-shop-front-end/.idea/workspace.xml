@@ -5,9 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0c0b568-ce36-4998-a697-66497518f100" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/controller/SupplierController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/dto/SupplierDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/entity/Supplier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/repository/SupplierRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/SupplierService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/SupplierServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/util/SupplierCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/admin/AdminSupplierController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/admin/validation/EmployeeValidation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/admin/validation/SupplierValidation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/EmployeeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/EmployeeServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/resources/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/resources/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/AdminDashboardController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/AdminDashboardController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/admin/AdminEmployeeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/AdminEmployeeController.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +59,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/GDSE-66/Second Semester/AAD/CourseWork/Other/springboot final project/shoe managment backend/app",
+    "last_opened_file_path": "D:/GDSE-66/Second Semester/AAD/CourseWork/Shoe-shop-management-system/shoe-shop-front-end",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -83,6 +96,7 @@
       <workItem from="1714541469431" duration="2634000" />
       <workItem from="1714545500219" duration="3102000" />
       <workItem from="1714552874475" duration="6076000" />
+      <workItem from="1714579172794" duration="8655000" />
     </task>
     <servers />
   </component>

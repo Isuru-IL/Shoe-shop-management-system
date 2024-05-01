@@ -55,7 +55,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<EmployeeDTO> searchCustomer(String name) {
+    public List<EmployeeDTO> searchEmployee(String name) {
         return null;
     }
 
@@ -66,7 +66,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
 //        return customerRepo.findById(id).map(customer -> mapper.map(customer, CustomerDTO.class)).get();
         Employee employee = employeeRepo.findByCode(id);
-        System.out.println(employee.getCode());
+        //System.out.println(employee.getCode());
         return mapper.map(employee,EmployeeDTO.class);
     }
 

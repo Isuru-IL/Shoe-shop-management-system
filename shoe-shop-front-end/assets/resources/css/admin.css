@@ -56,3 +56,15 @@ header #header-main-cover{
     border-radius: 1.4em;
     padding: 0;
 }
+
+/*admin-customer //////////////////////////////////*/
+#admin-supplier-page{
+    display: none;
+}
+#admin-supplier-page #supplier-content{
+    box-shadow: 0px 0px 8px 1px #0000007a;
+    width: 90%;
+}
+#admin-supplier-page #supplier-up-content{
+    box-shadow: 0px 0px 8px 1px #0000007a;
+}
