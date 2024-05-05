@@ -23,10 +23,10 @@ function setTheLastView() {
         case "SUPPLIER":
             setView($("#admin-supplier-page"));
             break;
-        /*case "ITEM":
-            setView($("#item-page"));
+        case "ITEM":
+            setView($("#admin-item-page"));
             break;
-        case "ORDERS":
+        /*case "ORDERS":
             setView($("#order-page"));
             break;
         case "ORDER-DETAILS":
@@ -58,10 +58,10 @@ function saveLastView(clickedID) {
         case "admin-supplier-page":
             localStorage.setItem("view", "SUPPLIER");
             break;
-        /*case "item-page":
+        case "admin-item-page":
             localStorage.setItem("view", "ITEM");
             break;
-        case "order-page":
+        /*case "order-page":
             localStorage.setItem("view", "ORDERS");
             break;
         case "order-detail-page":
@@ -97,7 +97,7 @@ function setView(viewOb) {
 
 function clearAll() {
     // $("#home-page,#customer-page,#item-page,#order-page,#order-detail-page,#log-in-page,#sign-up-page").css('display','none');
-    $("#admin-home-page,#admin-customer-page,#admin-employee-page,#admin-supplier-page").css('display','none');
+    $("#admin-home-page,#admin-customer-page,#admin-employee-page,#admin-supplier-page,#admin-item-page").css('display','none');
 }
 
 
@@ -120,12 +120,12 @@ $("#admin-supplier-nav").click(function () {
     supplierInitialize();
 });
 
-/*$("#item-nav").click(function () {
-    setView($("#item-page"));
+$("#admin-item-nav").click(function () {
+    setView($("#admin-item-page"));
     itemInitialize();
 });
 
-$("#order-nav").click(function () {
+/*$("#order-nav").click(function () {
     placeOrderInitialize();
     setView($("#order-page"));
 });

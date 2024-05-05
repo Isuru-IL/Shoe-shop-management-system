@@ -63,7 +63,7 @@ public class SupplierServiceImpl implements SupplierService {
     @Override
     public SupplierDTO searchSupplierById(String id) {
         if (!supplierRepo.existsById(id)){
-            throw new NotFoundException("Customer Id does not exists!");
+            throw new NotFoundException("Supplier Id does not exists!");
         }
 //        return customerRepo.findById(id).map(customer -> mapper.map(customer, CustomerDTO.class)).get();
         Supplier supplier = supplierRepo.findByCode(id);

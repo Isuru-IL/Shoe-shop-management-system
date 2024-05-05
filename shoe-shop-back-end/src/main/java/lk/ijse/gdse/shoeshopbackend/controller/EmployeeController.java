@@ -100,7 +100,7 @@ public class EmployeeController {
     }
 
 
-        @GetMapping("/searchById")
+    @GetMapping("/searchById")
     public EmployeeDTO searchByID(@RequestParam("code")String code){
         return employeeService.searchEmployeeById(code);
     }

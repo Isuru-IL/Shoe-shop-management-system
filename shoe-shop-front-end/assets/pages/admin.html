@@ -33,7 +33,7 @@
                         <a class="nav-link fw-medium" href="#admin-employee-page" style="font-size: 15px">Employees</a>
                     </li>
                     <li id="admin-item-nav" class="nav-item">
-                        <a class="nav-link fw-medium" href="" style="font-size: 15px">Items</a>
+                        <a class="nav-link fw-medium" href="#admin-item-page" style="font-size: 15px">Items</a>
                     </li>
                     <li id="admin-supplier-nav" class="nav-item">
                         <a class="nav-link fw-medium" href="#admin-supplier-page" style="font-size: 15px">Suppliers</a>
@@ -504,6 +504,182 @@
             </section>
         </section>
     </section>
+    <section id="admin-item-page">
+        <section id="item-title" class="d-flex mt-5 mb-4 justify-content-center">
+            <div class="rounded-pill w-75 bg-primary">
+                <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-store mx-2"></i>Manage Inventory</h4>
+            </div>
+        </section>
+        <section id="item-content" class="container-fluid py-4 rounded-4">
+            <section class="d-flex justify-content-around flex-column align-items-center gap-5 flex-wrap-reverse">
+                <!--input fields-->
+                <section id="item-up-content" class="d-flex col-10 rounded-4 p-2 justify-content-around">
+                    <section class="row col-5 justify-content-center">
+                        <div class="row mb-3 mt-3 col-12">
+                            <label for="txtItemCode" class="col-sm-3 col-form-label">Code</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtItemCode">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtItemDesc" class="col-sm-3 col-form-label">Description</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtItemDesc">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtItemCategory" class="col-sm-3 col-form-label">Category</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtItemCategory">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label class="col-sm-3 col-form-label">Sizes :</label>
+                            <div class="row col-sm-9">
+                                <div class="row">
+                                    <label for="txtItemSize6" class="col-sm-3 col-form-label">Size-6</label>
+                                    <div class="col-sm-6">
+                                        <input type="number" class="form-control" id="txtItemSize6">
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <label for="txtItemSize7" class="col-sm-3 col-form-label">Size-7</label>
+                                    <div class="col-sm-6">
+                                        <input type="number" class="form-control" id="txtItemSize7">
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <label for="txtItemSize8" class="col-sm-3 col-form-label">Size-8</label>
+                                    <div class="col-sm-6">
+                                        <input type="number" class="form-control" id="txtItemSize8">
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <label for="txtItemSize9" class="col-sm-3 col-form-label">Size-9</label>
+                                    <div class="col-sm-6">
+                                        <input type="number" class="form-control" id="txtItemSize9">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="cmbItemSupCode" class="col-sm-3 col-form-label">Supplier Code</label>
+                            <div class="col-sm-9">
+                                <select id="cmbItemSupCode" class="form-select" aria-label="Default select example">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtItemSupName" class="col-sm-3 col-form-label">Supplier Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtItemSupName">
+                            </div>
+                        </div>
+                    </section>
+                    <section class="row col-5 justify-content-center">
+                        <div id="item-pic-div" class="row mb-3 mt-3">
+
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtItemProfilePic" class="col-sm-3 col-form-label">Profile Pic</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="file" id="txtItemProfilePic">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtItemUnitPriceSale" class="col-sm-3 col-form-label">Unit Price(Sale)</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="txtItemUnitPriceSale">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtItemUnitPriceBuy" class="col-sm-3 col-form-label">Unit Price(Buy)</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="txtItemUnitPriceBuy">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtItemProfit" class="col-sm-3 col-form-label">Profit</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="txtItemProfit">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtItemProfitMargin" class="col-sm-3 col-form-label">Profit Margin</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="txtItemProfitMargin">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <label for="txtItemStatus" class="col-sm-3 col-form-label">Status</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtItemStatus">
+                            </div>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <section class="d-flex flex-wrap justify-content-end gap-2">
+                                <button id="btnItemSave" type="button" class="btn btn-outline-success">Save</button>
+                                <button id="btnItemUpdate" type="button" class="btn btn-outline-primary">update</button>
+                                <button id="btnItemDelete" type="button" class="btn btn-outline-danger">Delete</button>
+                            </section>
+                        </div>
+                    </section>
+                </section>
+
+
+                <!--table-->
+                <section id="Item-search-content" class="col-12 col-sm-8 my-2">
+                    <section id="Item-search">
+                        <form class="row gx-3 gy-2 align-items-center">
+                            <div class="col-sm-3">
+                                <label class="visually-hidden" for="cmbItemSearch">Preference</label>
+                                <select class="form-select" id="cmbItemSearch">
+                                    <option value="ID">ID</option>
+                                    <option value="Name">Name</option>
+                                </select>
+                            </div>
+                            <div class="w-50 col-sm-3">
+                                <label class="visually-hidden" for="txtEmpSearch">Name</label>
+                                <input type="text" class="form-control" id="txtItemSearch" placeholder="Search Item">
+                            </div>
+                            <div class="col-auto">
+                                <button id="btnItemSearch" type="button" class="btn btn-outline-primary">Search</button>
+                            </div>
+                            <div class="col-auto">
+                                <button id="btnItemClear" type="button" class="btn btn-outline-warning">Clear</button>
+                            </div>
+                        </form>
+                    </section>
+                </section>
+                <!--                    table-->
+                <section id="item-table" class="p-2 rounded-4 bg-light w-100">
+                    <table id="tableItem" class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="bg-primary text-white">Code</th>
+                            <th scope="col" class="bg-primary text-white">Item Pic</th>
+                            <th scope="col" class="bg-primary text-white">Description</th>
+                            <th scope="col" class="bg-primary text-white">Category</th>
+                            <th scope="col" class="bg-primary text-white">Size-6</th>
+                            <th scope="col" class="bg-primary text-white">Size-7</th>
+                            <th scope="col" class="bg-primary text-white">Size-8</th>
+                            <th scope="col" class="bg-primary text-white">Size-9</th>
+                            <th scope="col" class="bg-primary text-white">Sale Price</th>
+                            <th scope="col" class="bg-primary text-white">Buy Price</th>
+                            <th scope="col" class="bg-primary text-white">Profit</th>
+                            <th scope="col" class="bg-primary text-white">Profit Margin</th>
+                            <th scope="col" class="bg-primary text-white">Status</th>
+                            <th scope="col" class="bg-primary text-white">Supplier Code</th>
+                            <th scope="col" class="bg-primary text-white">Supplier Name</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody-item" class="table-group-divider"></tbody>
+                    </table>
+                </section>
+            </section>
+        </section>
+    </section>
 </main>
 
 <script src="../resources/bootstrap/js/bootstrap.js"></script>
@@ -513,8 +689,10 @@
 <script src="../../controllers/admin/AdminCustomerController.js"></script>
 <script src="../../controllers/admin/AdminEmployeeController.js"></script>
 <script src="../../controllers/admin/AdminSupplierController.js"></script>
+<script src="../../controllers/admin/AdminItemController.js"></script>
 <script src="../../controllers/admin/validation/CustomerValidation.js"></script>
 <script src="../../controllers/admin/validation/EmployeeValidation.js"></script>
 <script src="../../controllers/admin/validation/SupplierValidation.js"></script>
+<script src="../../controllers/admin/validation/ItemValidation.js"></script>
 </body>
 </html>

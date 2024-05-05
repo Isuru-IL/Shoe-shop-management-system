@@ -37,7 +37,7 @@ header #header-main-cover{
     box-shadow: 0px 0px 8px 1px #0000007a;
 }
 
-/*employee-customer //////////////////////////////////*/
+/*admin-employee //////////////////////////////////*/
 #admin-employee-page{
     display: none;
 }
@@ -57,7 +57,7 @@ header #header-main-cover{
     padding: 0;
 }
 
-/*admin-customer //////////////////////////////////*/
+/*admin-supplier //////////////////////////////////*/
 #admin-supplier-page{
     display: none;
 }
@@ -67,4 +67,24 @@ header #header-main-cover{
 }
 #admin-supplier-page #supplier-up-content{
     box-shadow: 0px 0px 8px 1px #0000007a;
+}
+
+/*admin-item //////////////////////////////////*/
+#admin-item-page{
+    display: none;
+}
+#admin-item-page #item-content{
+    box-shadow: 0px 0px 8px 1px #0000007a;
+    width: 90%;
+}
+#admin-item-page #item-up-content{
+    box-shadow: 0px 0px 8px 1px #0000007a;
+}
+
+#admin-item-page #item-pic-div{
+    box-shadow: 0px 0px 2px 0.1px #0000007a;
+    width: 100px;
+    height: 100px;
+    border-radius: 1.4em;
+    padding: 0;
 }

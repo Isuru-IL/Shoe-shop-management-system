@@ -220,13 +220,15 @@ $("#tbody-employee").on('click', 'tr', function (){
     var addressLine1 = row.children().eq(15).text();
     var addressLine2 = row.children().eq(16).text();
 
+    //console.log(proPic)
+
     /*$("#btnCustomerSave").prop("disabled", true);*/
 
     var base64Data;
     var matches = proPic.match(/src="data:image\/png;base64,([^"]+)"/);
     if (matches) {
         base64Data = matches[1];
-        console.log(base64Data);
+        //console.log(base64Data);
 
         // Decode base64 data into a blob
         var byteCharacters = atob(base64Data);
