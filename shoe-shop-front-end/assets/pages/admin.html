@@ -26,6 +26,9 @@
                         <!--                            <a class="nav-link active fw-medium text-body-secondary" aria-current="page" href="#"></i>Home</a>-->
                         <a class="nav-link fw-medium" href="#admin-home-page" style="font-size: 15px">Home</a>
                     </li>
+                    <li id="admin-product-nav" class="nav-item">
+                        <a class=" nav-link fw-medium" href="#admin-product-page" style="font-size: 15px">Products</a>
+                    </li>
                     <li id="admin-customer-nav" class="nav-item">
                         <a class=" nav-link fw-medium" href="#admin-customer-page" style="font-size: 15px">Customers</a>
                     </li>
@@ -680,6 +683,64 @@
             </section>
         </section>
     </section>
+    <section id="admin-product-page">
+        <section id="product-title" class="d-flex mt-5 mb-4 justify-content-center">
+            <div class="rounded-pill w-75 bg-primary">
+                <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-store mx-2"></i>Products Details</h4>
+            </div>
+        </section>
+        <section id="product-content" class="container-fluid py-4 rounded-4">
+            <section class="d-flex justify-content-around flex-column align-items-center gap-5 flex-wrap-reverse">
+                <!--input fields-->
+                <section id="product-up-content" class="d-flex col-10 rounded-4 p-2 justify-content-center">
+                    <section class="row col-5 justify-content-center">
+                        <div class="row mb-3 mt-3 col-12">
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="txtMinPrice"  min="0"
+                                       oninput="validity.valid||(value='');" placeholder="min-price">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="txtMaxPrice" min="0"
+                                       oninput="validity.valid||(value='');" placeholder="max-price">
+                            </div>
+                            <button id="btnProductPriceSearch" type="button" class="col-sm-2 btn btn-outline-primary">Search</button>
+                        </div>
+                        <div class="row mb-3 col-12">
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="txtProductName" placeholder="search by name">
+                            </div>
+                            <button id="btnProductNameSearch" type="button" class="col-sm-2 btn btn-outline-primary">Search</button>
+                        </div>
+                        <div class="row mb-3 col-12 pt-3 pb-3"></div>
+                    </section>
+                    <section class="row col-5 justify-content-center">
+                        <div class="col-sm-9 mb-3 mt-3">
+                            <select id="cmbChooseByGender" class="form-select" aria-label="Default select example">
+                                <option selected>Choose by Gender</option>
+                                <option value="Mens">Men</option>
+                                <option value="Women">Women</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-9 mb-3">
+                            <select id="cmbChooseByOccasion" class="form-select" aria-label="Default select example">
+                                <option selected>Choose by Occasion</option>
+                                <option value="Formal">Formal</option>
+                                <option value="Casual">Casual</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-9 mb-3 d-flex justify-content-end">
+                            <button id="btnProductClear" type="button" class="col-sm-3 btn btn-outline-warning">Clear</button>
+                        </div>
+                    </section>
+                </section>
+
+                <!--item grid-->
+                <div id="product-grid" class="mb-5">
+
+                </div>
+            </section>
+        </section>
+    </section>
 </main>
 
 <script src="../resources/bootstrap/js/bootstrap.js"></script>
@@ -690,6 +751,7 @@
 <script src="../../controllers/admin/AdminEmployeeController.js"></script>
 <script src="../../controllers/admin/AdminSupplierController.js"></script>
 <script src="../../controllers/admin/AdminItemController.js"></script>
+<script src="../../controllers/admin/ProductController.js"></script>
 <script src="../../controllers/admin/validation/CustomerValidation.js"></script>
 <script src="../../controllers/admin/validation/EmployeeValidation.js"></script>
 <script src="../../controllers/admin/validation/SupplierValidation.js"></script>

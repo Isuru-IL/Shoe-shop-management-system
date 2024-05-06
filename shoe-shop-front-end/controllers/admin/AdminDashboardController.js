@@ -26,6 +26,9 @@ function setTheLastView() {
         case "ITEM":
             setView($("#admin-item-page"));
             break;
+        case "PRODUCT":
+            setView($("#admin-product-page"));
+            break;
         /*case "ORDERS":
             setView($("#order-page"));
             break;
@@ -60,6 +63,9 @@ function saveLastView(clickedID) {
             break;
         case "admin-item-page":
             localStorage.setItem("view", "ITEM");
+            break;
+        case "admin-product-page":
+            localStorage.setItem("view", "PRODUCT");
             break;
         /*case "order-page":
             localStorage.setItem("view", "ORDERS");
@@ -97,7 +103,7 @@ function setView(viewOb) {
 
 function clearAll() {
     // $("#home-page,#customer-page,#item-page,#order-page,#order-detail-page,#log-in-page,#sign-up-page").css('display','none');
-    $("#admin-home-page,#admin-customer-page,#admin-employee-page,#admin-supplier-page,#admin-item-page").css('display','none');
+    $("#admin-home-page,#admin-customer-page,#admin-employee-page,#admin-supplier-page,#admin-item-page,#admin-product-page").css('display','none');
 }
 
 
@@ -123,6 +129,11 @@ $("#admin-supplier-nav").click(function () {
 $("#admin-item-nav").click(function () {
     setView($("#admin-item-page"));
     itemInitialize();
+});
+
+$("#admin-product-nav").click(function () {
+    setView($("#admin-product-page"));
+    productInitialize();
 });
 
 /*$("#order-nav").click(function () {

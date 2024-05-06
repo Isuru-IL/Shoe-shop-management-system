@@ -5,22 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0c0b568-ce36-4998-a697-66497518f100" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/controller/InventoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/dto/InventoryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/entity/Inventory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/repository/InventoryRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/InventoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/InventoryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/admin/AdminItemController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/admin/validation/ItemValidation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/SupplierServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/SupplierServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/admin/ProductController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/controller/InventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/repository/InventoryRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/repository/InventoryRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/InventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/InventoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/InventoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/InventoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/pages/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/admin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/resources/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/resources/css/admin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/admin/AdminDashboardController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/AdminDashboardController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/AdminEmployeeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/AdminEmployeeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/AdminSupplierController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/AdminSupplierController.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +51,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/GDSE-66/Second Semester/ORM/Coursework/Project",
+    "last_opened_file_path": "D:/GDSE-66/Second Semester/AAD/CourseWork/Shoe-shop-management-system/shoe-shop-front-end",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -100,6 +93,7 @@
       <workItem from="1714732199228" duration="1461000" />
       <workItem from="1714814345493" duration="5290000" />
       <workItem from="1714884847548" duration="17324000" />
+      <workItem from="1714979753109" duration="13863000" />
     </task>
     <servers />
   </component>
