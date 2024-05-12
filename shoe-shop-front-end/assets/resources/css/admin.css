@@ -126,3 +126,27 @@ header #header-main-cover{
     box-shadow: 0px 0px 2px 0.1px #0000007a;
     border: 2px solid rgb(206, 212, 218);
 }
+
+/*place-order ///////////////////////////*/
+#admin-order-page{
+    display: none;
+}
+#admin-order-page #content{
+    box-shadow: 0px 0px 8px 1px #0000007a;
+    width: 95%;
+}
+#admin-order-page #right-content{
+    box-shadow: 0px 0px 8px 1px #0000007a;
+}
+#admin-order-page #invoice-details{
+    box-shadow: 0px 0px 8px 1px #0000007a;
+}
+#admin-order-page #item-details{
+    box-shadow: 0px 0px 8px 1px #0000007a;
+}
+#admin-order-page #amount-details{
+    box-shadow: 0px 0px 8px 1px #0000007a;
+}
+#admin-order-page #btnAddToCart{
+    margin-right: 200px;
+}

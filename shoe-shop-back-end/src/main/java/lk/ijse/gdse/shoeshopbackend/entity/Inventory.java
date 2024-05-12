@@ -1,11 +1,12 @@
 package lk.ijse.gdse.shoeshopbackend.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -31,4 +32,7 @@ public class Inventory {
 
     @Column(columnDefinition = "LONGTEXT")
     private String itemPic;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "item_code")
+    private List<OrderDetail> orderDetails = new ArrayList<>();
 }

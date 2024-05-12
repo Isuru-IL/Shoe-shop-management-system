@@ -42,7 +42,7 @@
                         <a class="nav-link fw-medium" href="#admin-supplier-page" style="font-size: 15px">Suppliers</a>
                     </li>
                     <li id="admin-order-nav" class="nav-item">
-                        <a class="nav-link fw-medium" href="" style="font-size: 15px">Place Orders</a>
+                        <a class="nav-link fw-medium" href="#admin-order-page" style="font-size: 15px">Place Order</a>
                     </li>
                     <li id="admin-order-detail-nav" class="nav-item">
                         <a class="nav-link fw-medium" href="" style="font-size: 15px">Order details</a>
@@ -741,6 +741,172 @@
             </section>
         </section>
     </section>
+    <section id="admin-order-page">
+        <section id="title" class=" d-flex mt-5 mb-4 justify-content-center">
+            <div class="rounded-pill w-75 bg-primary">
+                <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-cart-shopping px-2"></i>Place Order</h4>
+            </div>
+        </section>
+        <section id="content" class="container-fluid py-4 rounded-4">
+            <section class="container-fluid">
+                <section id="place-order-content" class="row d-flex justify-content-between flex-wrap">
+                    <section id="order-details" class="col-12 col-sm-8">
+                        <section id="invoice-details" class=" col-12 p-2 rounded-4">
+                            <div class="rounded-3 w-100 bg-primary">
+                                <h5 class="fw-normal ps-3 mb-0 py-1 text-white">Invoice Details</h5>
+                            </div>
+                            <div id="customer-detail-cover" class="row">
+                                <div id="order-id" class="d-flex flex-wrap align-items-center gap-5">
+                                    <div class="mt-1 col-5 col-md-3">
+                                        <label for="txtOrderId" class="form-label m-0">Order ID :</label>
+                                        <input type="text" class="form-control" id="txtOrderId" disabled="true">
+                                    </div>
+                                    <div class="mt-1 col-5 col-md-3">
+                                        <label for="txtOrderDate" class="form-label m-0">Order Date :</label>
+                                        <input type="text" class="form-control" id="txtOrderDate" disabled="true">
+                                    </div>
+                                    <div class="mt-1 col-5 col-md-4">
+                                        <label for="lblCashierName" class="form-label m-0">Cashier Name :</label>
+                                        <label id="lblCashierName"class="form-label m-0 fw-semibold">Isuru</label>
+                                    </div>
+                                </div>
+                                <!--                order-id ////////////////////////-->
+                                <div id="customer-id" class="d-flex flex-wrap align-items-center gap-5">
+                                    <div class="mt-1 col-5 col-md-3">
+                                        <label for="cmbCustomerIds" class="form-label m-0">Customer ID :</label>
+                                        <select id="cmbCustomerIds" class="form-select" aria-label="Default select example">
+
+                                        </select>
+                                    </div>
+                                    <div class="mt-1 col-5 col-md-4">
+                                        <label for="lblCustomerName" class="form-label m-0">Customer Name :</label>
+                                        <label id="lblCustomerName"class="form-label m-0 fw-semibold"></label>
+                                    </div>
+                                </div>
+                                <!--                customer-id //////////////////////-->
+                            </div>
+                            <!--              customer-detail-cover/////////////////////-->
+                        </section>
+                        <!--           invoice-details ////////////////////////////-->
+                        <section id="item-details" class="mt-4 p-2 rounded-4">
+                            <div class="rounded-3 w-100 bg-primary">
+                                <h5 class="fw-normal ps-3 mb-0 py-1 text-white">Item Details</h5>
+                            </div>
+                            <div id="item-details-cover">
+                                <div id="item-id" class="d-flex flex-wrap gap-5 align-items-center">
+                                    <div class="mt-1 col-4 col-md-3">
+                                        <label for="cmbItemCodes" class="form-label m-0">Item Code :</label>
+                                        <select id="cmbItemCodes" class="form-select" aria-label="Default select example">
+
+                                        </select>
+                                    </div>
+                                    <div class="mt-1 col-4 col-md-3">
+                                        <label for="lblItemName" class="form-label m-0">Item Name :</label>
+                                        <label id="lblItemName" class="form-label m-0 fw-semibold"></label>
+                                    </div>
+                                    <div class="mt-1 col-4 col-md-3">
+                                        <label for="lblItemUnitPrice" class="form-label m-0">Unit Price :</label>
+                                        <label id="lblItemUnitPrice" class="form-label m-0 fw-semibold"></label>
+                                    </div>
+                                </div>
+                                <!--                item-id /////////////////-->
+                                <div id="item-name" class="d-flex flex-wrap align-items-center gap-5">
+                                    <div class="mt-1 col-4 col-md-3">
+                                        <label for="cmbItemSizes" class="form-label m-0">Item Size :</label>
+                                        <select id="cmbItemSizes" class="form-select" aria-label="Default select example" disabled>
+                                            <option selected></option>
+                                            <option value="size_6">Size-6</option>
+                                            <option value="size_7">Size-7</option>
+                                            <option value="size_8">Size-8</option>
+                                            <option value="size_9">Size-9</option>
+                                        </select>
+                                    </div>
+                                    <div class="mt-1 col-4 col-md-3">
+                                        <label for="lblQtyOnHand" class="form-label m-0">Qty On Hand :</label>
+                                        <label id="lblQtyOnHand" class="form-label m-0 fw-semibold"></label>
+                                    </div>
+                                    <div class="mt-1 col-4 col-md-3">
+                                        <label for="txtOrderQty" class="form-label m-0">Order qty :</label>
+                                        <input type="number" class="form-control" id="txtOrderQty" >
+                                    </div>
+                                </div>
+                                <div id="item-addTo-card" class="d-flex flex-wrap align-items-center justify-content-end gap-5">
+                                    <div class="col-auto mt-3 ">
+                                        <button id="btnAddToCart" type="button" class="btn btn-warning" disabled="true">Add to Cart</button>
+                                    </div>
+                                </div>
+                                <!--                item-name //////////////////-->
+                            </div>
+                            <!--              item-details-cover //////////////-->
+                        </section>
+                        <!--            item-details ////////////////////-->
+                    </section>
+                    <!--           order-details ////////////////////////////-->
+                    <section id="amount-details" class="col-4 p-2 rounded-4">
+                        <div id="sub-total" class="d-flex justify-content-center align-items-center gap-2 mb-2 mt-4">
+                            <label for="lblSubTotal" class="form-label m-0 text-danger fs-4 fw-semibold">Sub Total :</label>
+                            <label id="lblSubTotal" class="form-label m-0 fw-semibold text-danger fs-4"></label>
+                        </div>
+                        <div id="total" class="d-flex justify-content-center gap-2">
+                            <label for="lblTotal" class="form-label m-0 fs-5">Total :</label>
+                            <label id="lblTotal" class="form-label m-0 fs-5"></label>
+                        </div>
+                        <div id="enter-total-div" class="row d-flex justify-content-center gap-1 my-2">
+                            <div class="mt-1 col-6 col-md-5">
+                                <label for="txtCash" class="form-label m-0">Cash :</label>
+                                <input type="number" class="form-control" id="txtCash" >
+                            </div>
+                            <div class="mt-1 col-6 col-md-6">
+                                <label for="txtDiscount" class="form-label m-0">Discount :</label>
+                                <input type="number" class="form-control" id="txtDiscount" >
+                            </div>
+                        </div>
+                        <div id="pay-method-div" class="row d-flex justify-content-center gap-1 my-2">
+                            <div class="mt-1 col-6 col-md-5">
+                                <label for="txtCash" class="form-label m-0">Payment Method :</label>
+                                <select class="form-select" id="cmbPaymentMethod">
+                                    <option value="Cash">Cash</option>
+                                    <option value="Card">Card</option>
+                                </select>
+                            </div>
+                            <div class="mt-1 col-6 col-md-6">
+                                <label for="txtAddPoints" class="form-label m-0">Add Points :</label>
+                                <input type="number" class="form-control" id="txtAddPoints" >
+                            </div>
+                        </div>
+                        <div id="balance" class="d-flex justify-content-start gap-2 my-3 ms-3">
+                            <label for="lblBalance" class="form-label m-0 fs-6">Balance :</label>
+                            <label id="lblBalance" class="form-label m-0 fs-6"></label>
+                        </div>
+                        <div class="col-auto d-flex justify-content-center mt-5">
+                            <button id="btnPlaceOrder" type="button" class="btn btn-success" disabled="true">Place Order</button>
+                        </div>
+                        <!--            enter-total-div /////////////////////-->
+                    </section>
+                    <!--          amount-details ///////////////////-->
+                </section>
+                <!--          place-order-content ///////////////////////-->
+            </section>
+            <!--      table///////////////////////////////////////////////////////////////-->
+            <section id="order-table" class="pt-5 rounded-4 bg-light">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="bg-primary text-white">Item Code</th>
+                        <th scope="col" class="bg-primary text-white">Item Name</th>
+                        <th scope="col" class="bg-primary text-white">Size</th>
+                        <th scope="col" class="bg-primary text-white">Unit Price</th>
+                        <th scope="col" class="bg-primary text-white">Quantity</th>
+                        <th scope="col" class="bg-primary text-white">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody-orderCart" class="table-group-divider">
+                    </tbody>
+                </table>
+            </section>
+
+        </section>
+    </section>
 </main>
 
 <script src="../resources/bootstrap/js/bootstrap.js"></script>
@@ -752,9 +918,11 @@
 <script src="../../controllers/admin/AdminSupplierController.js"></script>
 <script src="../../controllers/admin/AdminItemController.js"></script>
 <script src="../../controllers/admin/ProductController.js"></script>
+<script src="../../controllers/admin/PlaceOrderController.js"></script>
 <script src="../../controllers/admin/validation/CustomerValidation.js"></script>
 <script src="../../controllers/admin/validation/EmployeeValidation.js"></script>
 <script src="../../controllers/admin/validation/SupplierValidation.js"></script>
 <script src="../../controllers/admin/validation/ItemValidation.js"></script>
+<script src="../../controllers/admin/validation/PlaceOrderValidation.js"></script>
 </body>
 </html>
