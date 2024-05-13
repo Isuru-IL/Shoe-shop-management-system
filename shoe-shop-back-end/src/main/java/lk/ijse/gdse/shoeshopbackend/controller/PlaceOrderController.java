@@ -2,6 +2,7 @@ package lk.ijse.gdse.shoeshopbackend.controller;
 
 import lk.ijse.gdse.shoeshopbackend.dto.CustomerDTO;
 import lk.ijse.gdse.shoeshopbackend.dto.InventoryDTO;
+import lk.ijse.gdse.shoeshopbackend.dto.OrderDTO;
 import lk.ijse.gdse.shoeshopbackend.service.PlaceOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,10 @@ public class PlaceOrderController {
     @Autowired
     private PlaceOrderService placeOrderService;
 
-
+    @PostMapping("/placeOrder")
+    public void placeOrder(@RequestBody OrderDTO orderDTO){
+        System.out.println(orderDTO);
+    }
     @GetMapping("/searchItemByCode")
     public InventoryDTO searchItemByCode(@RequestParam("code") String code){
         return placeOrderService.searchItemByCode(code);

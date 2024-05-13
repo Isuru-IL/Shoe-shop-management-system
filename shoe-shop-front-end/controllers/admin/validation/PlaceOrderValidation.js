@@ -29,3 +29,24 @@ function checkItemDetailsInputFields() {
         $("#btnAddToCart").prop("disabled", true);
     }
 }
+
+// btnPlaceOrder validations///////////////////////////////////////////
+function validateTxtCash() {
+    if (ORDER_CASH_REGEX.test($('#txtCash').val())) {
+        $('#txtCash').css("border", "1px solid rgb(206, 212, 218)");
+        return true;
+    } else {
+        $('#txtCash').css("border", "2px solid red");
+        return false;
+    }
+}
+
+function validateTxtDiscount() {
+    if (ORDER_DISCOUNT_REGEX.test($('#txtDiscount').val())) {
+        $('#txtDiscount').css("border", "1px solid rgb(206, 212, 218)");
+        return true;
+    } else {
+        $('#txtDiscount').css("border", "2px solid red");
+        return false;
+    }
+}

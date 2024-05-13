@@ -16,7 +16,6 @@ public class OrderDetail {
     private OrderDetailPK orderDetailPK;
 
     private String itemName;
-    private String size;
     private Double unitPrice;
     private Integer itemQty;
 

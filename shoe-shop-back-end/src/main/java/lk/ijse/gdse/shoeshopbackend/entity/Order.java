@@ -20,7 +20,7 @@ public class Order {
     private String orderId;
     private Timestamp orderDate;
     private Double totalPrice;
-    private Double addedPoints;
+    private Integer addedPoints;
     private String paymentMethod;
     private String cashierName;
 

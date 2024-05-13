@@ -15,4 +15,5 @@ public class OrderDetailPK implements Serializable {
 
     private String order_id;
     private String item_code;
+    private String size;
 }

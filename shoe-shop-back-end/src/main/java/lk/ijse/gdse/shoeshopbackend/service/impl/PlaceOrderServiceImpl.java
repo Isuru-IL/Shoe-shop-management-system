@@ -1,23 +1,34 @@
 package lk.ijse.gdse.shoeshopbackend.service.impl;
 
+import jakarta.transaction.Transactional;
 import lk.ijse.gdse.shoeshopbackend.dto.CustomerDTO;
 import lk.ijse.gdse.shoeshopbackend.dto.InventoryDTO;
+import lk.ijse.gdse.shoeshopbackend.dto.OrderDTO;
+import lk.ijse.gdse.shoeshopbackend.dto.OrderDetailDTO;
+import lk.ijse.gdse.shoeshopbackend.embedded.OrderDetailPK;
+import lk.ijse.gdse.shoeshopbackend.entity.Customer;
 import lk.ijse.gdse.shoeshopbackend.entity.Employee;
 import lk.ijse.gdse.shoeshopbackend.entity.Order;
+import lk.ijse.gdse.shoeshopbackend.entity.OrderDetail;
 import lk.ijse.gdse.shoeshopbackend.repository.CustomerRepo;
 import lk.ijse.gdse.shoeshopbackend.repository.InventoryRepo;
+import lk.ijse.gdse.shoeshopbackend.repository.OrderDetailRepo;
 import lk.ijse.gdse.shoeshopbackend.repository.OrderRepo;
 import lk.ijse.gdse.shoeshopbackend.service.PlaceOrderService;
 import lk.ijse.gdse.shoeshopbackend.service.exception.NotFoundException;
+import lk.ijse.gdse.shoeshopbackend.util.CustomerLoyaltyLevel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Transactional
 @Service
 public class PlaceOrderServiceImpl implements PlaceOrderService {
 
+    @Autowired
+    private OrderDetailRepo orderDetailRepo;
     @Autowired
     private OrderRepo orderRepo;
     @Autowired
@@ -26,6 +37,45 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
     private InventoryRepo inventoryRepo;
     @Autowired
     private ModelMapper mapper;
+
+    @Override
+    public void placeOrder(OrderDTO orderDTO) {
+        Order order = mapper.map(orderDTO, Order.class);
+
+        /*update customer ///////////////////////////*/
+        Customer customer = customerRepo.findByCode(orderDTO.getCustomer_id());
+        order.setCustomer_id(customer);
+
+        int currentPoints = customer.getLoyaltyPoints();
+        int addedPoints = orderDTO.getAddedPoints();
+
+        int newPoints = currentPoints+addedPoints;
+        CustomerLoyaltyLevel loyaltyLevel = null;
+        if (newPoints < 10){
+            loyaltyLevel = CustomerLoyaltyLevel.NEW;
+        }else if (newPoints >= 10 && newPoints<30){
+            loyaltyLevel = CustomerLoyaltyLevel.BRONZE;
+        } else if (newPoints >= 30 && newPoints<100) {
+            loyaltyLevel = CustomerLoyaltyLevel.SILVER;
+        } else if (newPoints >= 100) {
+            loyaltyLevel = CustomerLoyaltyLevel.GOLD;
+        }
+        customer.setLoyaltyLevel(loyaltyLevel);
+        customer.setLoyaltyPoints(newPoints);
+        customer.setRecentPurchaseDate(orderDTO.getOrderDate());
+        customerRepo.save(customer);
+
+        /*update item and save order-details ////////////////////////////////*/
+        orderRepo.save(order);
+
+        for (OrderDetailDTO detailDTO : orderDTO.getOrderDetailDTOList()) {
+            OrderDetailPK orderDetailPK = new OrderDetailPK(detailDTO.getOrder_id(),detailDTO.getItem_code(),detailDTO.getSize());
+
+            OrderDetail orderDetail = new OrderDetail();
+            orderDetail.setOrderDetailPK(orderDetailPK);
+            orderDetail.setItemName(detailDTO.getItemName());
+        }
+    }
 
     @Override
     public InventoryDTO searchItemByCode(String code) {
