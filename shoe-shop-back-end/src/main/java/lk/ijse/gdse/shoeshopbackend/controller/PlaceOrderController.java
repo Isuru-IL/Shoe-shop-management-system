@@ -18,7 +18,8 @@ public class PlaceOrderController {
 
     @PostMapping("/placeOrder")
     public void placeOrder(@RequestBody OrderDTO orderDTO){
-        System.out.println(orderDTO);
+        //System.out.println(orderDTO);
+        placeOrderService.placeOrder(orderDTO);
     }
     @GetMapping("/searchItemByCode")
     public InventoryDTO searchItemByCode(@RequestParam("code") String code){

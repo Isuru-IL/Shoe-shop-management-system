@@ -108,7 +108,15 @@ $("#btnPlaceOrder").click(function () {
     let orderId = $("#txtOrderId").val();
     let orderDate = new Date();
     let totalPrice = $("#lblSubTotal").text();
-    let addedPoints = $("#txtAddPoints").val();
+
+    let addedPoints;
+    console.log($("#txtAddPoints").val());
+    if ($("#txtAddPoints").val() === ""){
+        addedPoints = 0;
+    } else{
+        addedPoints= $("#txtAddPoints").val();
+    }
+
     let paymentMethod = $("#cmbPaymentMethod").val();
     let cashierName = $("#lblCashierName").text();
     let customerId = $("#cmbCustomerIds").val();
@@ -149,15 +157,16 @@ $("#btnPlaceOrder").click(function () {
         success: function (resp, textStatus, jqxhr) {
             console.log("placeOder success: ", resp);
             clearItemDetailsInputFields();
+            clearPlaceOrderInputFields();
             swal("Order placed", "Order placed successfully!", "success");
         },
         error: function (xhr, textStatus, error) {
             console.log("placeOrder error: ", error);
             console.log("placeOrder error: ", xhr);
-            swal("Error", "This supplier is already exits!", "error");
         }
     })
 })
+
 
 //calculate balance////////////////////////////////////////
 $('#txtCash').on("keyup",function (){
@@ -311,7 +320,7 @@ function setDataToOrderDate() {
     let year = today.getFullYear();
     let month = String(today.getMonth() + 1).padStart(2, '0');
     let day = String(today.getDate()).padStart(2, '0');
-    let orderDate = `${day}-${month}-${year}`;
+    let orderDate = `${year}-${month}-${day}`;
     $('#txtOrderDate').val(orderDate);
 }
 

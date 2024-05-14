@@ -6,10 +6,7 @@ import lk.ijse.gdse.shoeshopbackend.dto.InventoryDTO;
 import lk.ijse.gdse.shoeshopbackend.dto.OrderDTO;
 import lk.ijse.gdse.shoeshopbackend.dto.OrderDetailDTO;
 import lk.ijse.gdse.shoeshopbackend.embedded.OrderDetailPK;
-import lk.ijse.gdse.shoeshopbackend.entity.Customer;
-import lk.ijse.gdse.shoeshopbackend.entity.Employee;
-import lk.ijse.gdse.shoeshopbackend.entity.Order;
-import lk.ijse.gdse.shoeshopbackend.entity.OrderDetail;
+import lk.ijse.gdse.shoeshopbackend.entity.*;
 import lk.ijse.gdse.shoeshopbackend.repository.CustomerRepo;
 import lk.ijse.gdse.shoeshopbackend.repository.InventoryRepo;
 import lk.ijse.gdse.shoeshopbackend.repository.OrderDetailRepo;
@@ -21,6 +18,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Transactional
@@ -62,6 +60,8 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
         }
         customer.setLoyaltyLevel(loyaltyLevel);
         customer.setLoyaltyPoints(newPoints);
+
+        //System.out.println("order Date  ="+ orderDTO.getOrderDate());
         customer.setRecentPurchaseDate(orderDTO.getOrderDate());
         customerRepo.save(customer);
 
@@ -74,6 +74,24 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
             OrderDetail orderDetail = new OrderDetail();
             orderDetail.setOrderDetailPK(orderDetailPK);
             orderDetail.setItemName(detailDTO.getItemName());
+            orderDetail.setUnitPrice(detailDTO.getUnitPrice());
+            orderDetail.setItemQty(detailDTO.getItemQty());
+
+            orderDetailRepo.save(orderDetail);
+
+            /*update item ////////////////////////////////*/
+            int availableQty = inventoryRepo.findQtyByItemCodeAndSize(detailDTO.getItem_code(), detailDTO.getSize());
+            int newQty = availableQty - detailDTO.getItemQty();
+
+            String status;
+            if (newQty<=0){
+                status="Not Available";
+            } else if (newQty<10) {
+                status="Low";
+            } else {
+                status="Available";
+            }
+            inventoryRepo.updateByItemCodeAndSize(newQty, status, detailDTO.getItem_code(),detailDTO.getSize());
         }
     }
 

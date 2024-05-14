@@ -15,6 +15,9 @@ $('#cmbCustomerIds').on("click",function () {
 $('#cmbItemSizes').on("click",function () {
     checkItemDetailsInputFields();
 });
+$("#txtOrderQty").on("keyup", function () {
+    validateTxtOrderQty();
+})
 function validateTxtOrderQty() {
     if (ORDER_QTY_REGEX.test($('#txtOrderQty').val())) {
         $('#txtOrderQty').css("border", "1px solid rgb(206, 212, 218)");
@@ -40,7 +43,6 @@ function validateTxtCash() {
         return false;
     }
 }
-
 function validateTxtDiscount() {
     if (ORDER_DISCOUNT_REGEX.test($('#txtDiscount').val())) {
         $('#txtDiscount').css("border", "1px solid rgb(206, 212, 218)");
@@ -50,3 +52,21 @@ function validateTxtDiscount() {
         return false;
     }
 }
+function validateTxtAddPoints() {
+    if (ORDER_QTY_REGEX.test($('#txtAddPoints').val())) {
+        $('#txtAddPoints').css("border", "1px solid rgb(206, 212, 218)");
+        return true;
+    } else {
+        $('#txtAddPoints').css("border", "2px solid red");
+        return false;
+    }
+}
+
+//addedPoints /////////////////
+$('#txtAddPoints').on("keyup",function (){
+    if (validateTxtAddPoints()) {
+        calculateBalance();
+    } else {
+        $('#lblBalance').text("");
+    }
+});
