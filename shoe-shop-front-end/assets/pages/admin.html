@@ -45,7 +45,7 @@
                         <a class="nav-link fw-medium" href="#admin-order-page" style="font-size: 15px">Place Order</a>
                     </li>
                     <li id="admin-order-detail-nav" class="nav-item">
-                        <a class="nav-link fw-medium" href="" style="font-size: 15px">Order details</a>
+                        <a class="nav-link fw-medium" href="#order-detail-page" style="font-size: 15px">Order details</a>
                     </li>
                 </ul>
             </div>
@@ -907,6 +907,57 @@
 
         </section>
     </section>
+    <section id="order-detail-page">
+        <section id="order-detail-title" class=" d-flex mt-5 mb-4 justify-content-center">
+            <div class="rounded-pill w-75 bg-primary">
+                <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-circle-info px-2"></i>Order Details</h4>
+            </div>
+        </section>
+        <section id="order-detail-content" class="container-fluid py-4 rounded-4">
+            <section class="row">
+                <section id="order-details-search" class="col-12 mb-5 d-flex justify-content-center">
+                    <form class="row gx-3 gy-2 align-items-center">
+                        <div class="col-sm-3">
+                            <label class="visually-hidden" for="cmbOrderSearch">Preference</label>
+                            <select class="form-select" id="cmbOrderSearch">
+                                <option value="OrderID">Order ID</option>
+                                <option value="CustomerID">Customer ID</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="visually-hidden" for="txtSearchOrder">Name</label>
+                            <input type="text" class="form-control" id="txtSearchOrder" placeholder="Search Order">
+                        </div>
+                        <div class="col-auto">
+                            <button id="btnOrderSearch" type="button" class="btn btn-outline-primary">Search</button>
+                        </div>
+                        <div class="col-auto">
+                            <button id="btnOrderClear" type="button" class="btn btn-outline-warning">Clear</button>
+                        </div>
+                    </form>
+                </section>
+                <!--          search order details ////////////////////-->
+
+                <section id="order-detail-table" class="p-2 rounded-4 bg-light">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="bg-primary text-white">Order ID</th>
+                            <th scope="col" class="bg-primary text-white">Cashier Name</th>
+                            <th scope="col" class="bg-primary text-white">Customer ID</th>
+                            <th scope="col" class="bg-primary text-white">Order Date and Time</th>
+                            <th scope="col" class="bg-primary text-white">Added Points</th>
+                            <th scope="col" class="bg-primary text-white">Total</th>
+                            <th scope="col" class="bg-primary text-white"></th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody-refund-orders" class="table-group-divider">
+                        </tbody>
+                    </table>
+                </section>
+            </section>
+        </section>
+    </section>
 </main>
 
 <script src="../resources/bootstrap/js/bootstrap.js"></script>
@@ -919,6 +970,8 @@
 <script src="../../controllers/admin/AdminItemController.js"></script>
 <script src="../../controllers/admin/ProductController.js"></script>
 <script src="../../controllers/admin/PlaceOrderController.js"></script>
+<script src="../../controllers/admin/OrderDetailController.js"></script>
+
 <script src="../../controllers/admin/validation/CustomerValidation.js"></script>
 <script src="../../controllers/admin/validation/EmployeeValidation.js"></script>
 <script src="../../controllers/admin/validation/SupplierValidation.js"></script>

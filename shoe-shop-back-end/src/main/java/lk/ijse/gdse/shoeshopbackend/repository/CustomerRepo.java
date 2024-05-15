@@ -14,4 +14,6 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
     /*custom JPQL query*/
     @Query("SELECT c.code FROM Customer c")
     List<String> findAllCustomerCodes();
+
+
 }

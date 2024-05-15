@@ -150,3 +150,26 @@ header #header-main-cover{
 #admin-order-page #btnAddToCart{
     margin-right: 200px;
 }
+
+/*order-detail ///////////////////////////*/
+#order-detail-page{
+    display: none;
+}
+#order-detail-page #order-detail-content{
+    box-shadow: 0px 0px 8px 1px #0000007a;
+    width: 90%;
+}
+
+#order-detail-page .btn-refund {
+    border: 1px solid red;
+    border-radius: 10px;
+    background-color: white;
+    padding: 2px 10px; /* Optional: Add some padding for better appearance */
+    color: red;
+    cursor: pointer; /* Optional: Change cursor to pointer to indicate clickability */
+}
+
+#order-detail-page .btn-refund:hover {
+    background-color: red; /* Optional: Change background color on hover */
+    color: white; /* Optional: Change text color on hover */
+}
