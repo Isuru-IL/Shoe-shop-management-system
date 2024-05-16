@@ -7,4 +7,5 @@ import java.util.List;
 public interface OrderDetailService {
     List<OrderDTO> getAllRefundOrders();
     boolean refundOrder(String orderId);
+    OrderDTO getOrderByOrderId(String orderId);
 }

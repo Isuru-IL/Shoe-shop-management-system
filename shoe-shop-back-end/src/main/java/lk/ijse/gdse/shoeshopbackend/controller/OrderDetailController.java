@@ -36,4 +36,8 @@ public class OrderDetailController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while refunding the order");
         }
     }
+    @GetMapping("/searchByOrderId")
+    public OrderDTO getOrderByOrderId(@RequestParam("orderId")String orderId){
+        return orderDetailService.getOrderByOrderId(orderId);
+    }
 }

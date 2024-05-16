@@ -63,4 +63,63 @@ function refundOrder() {
         }
     });
 }
+$("#btnOrderSearch").click(function () {
+    let searchOrderId = $("#txtSearchOrder").val();
 
+    if (searchOrderId===""){
+        swal("Error", "Please insert Order ID!", "error");
+        return;
+    }
+    orderSearchByOrderId(searchOrderId);
+});
+function orderSearchByOrderId(orderId) {
+    $.ajax({
+        url: "http://localhost:8080/api/v1/orderDetail/searchByOrderId?orderId="+orderId,
+        method: "GET",
+        dataType: "json",
+        success: function (resp) {
+            loadOrderDataToTableByOrderId(resp);
+        },
+        error: function (xhr, textStatus, error) {
+            console.log("orderSearchById error: ", error);
+            console.log("orderSearchById error: ", xhr.status);
+            if (xhr.status===404){
+                swal("Error", "This Order Id does not exits!", "error");
+            }
+        }
+    })
+}
+function loadOrderDataToTableByOrderId(order) {
+    $("#tbody-refund-orders").empty();
+    let formattedDate = new Date(order.orderDate).toLocaleString('en-GB', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    });
+
+    let row = `<tr>
+                                <th>${order.orderId}</th>
+                                <td>${order.cashierName}</td>
+                                <td>${order.customerName}</td>
+                                <td>${formattedDate}</td>
+                                <td>${order.addedPoints}</td>
+                                <td>${order.totalPrice}</td>
+                                <td class="round-td">
+                                    <button class="btn-refund">Refund</button>
+                                </td>
+                              </tr>`;
+    $("#tbody-refund-orders").append(row);
+    $(".btn-refund").click(refundOrder);
+}
+
+$("#btnOrderClear").click(function () {
+    clearOrderDetailInputFields();
+});
+function clearOrderDetailInputFields() {
+    $("#txtSearchOrder").val("");
+    getAllRefundOrders();
+}
