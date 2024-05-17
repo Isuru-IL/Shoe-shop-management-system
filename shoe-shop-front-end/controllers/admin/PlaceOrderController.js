@@ -158,6 +158,7 @@ $("#btnPlaceOrder").click(function () {
             console.log("placeOder success: ", resp);
             clearItemDetailsInputFields();
             clearPlaceOrderInputFields();
+            $("#btnPlaceOrder").prop("disabled", true);
             swal("Order placed", "Order placed successfully!", "success");
         },
         error: function (xhr, textStatus, error) {

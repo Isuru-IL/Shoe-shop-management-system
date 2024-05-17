@@ -1,11 +1,11 @@
 package lk.ijse.gdse.shoeshopbackend.service.impl;
 
+import lk.ijse.gdse.shoeshopbackend.dto.CustomDTO;
 import lk.ijse.gdse.shoeshopbackend.dto.OrderDTO;
+import lk.ijse.gdse.shoeshopbackend.dto.OrderDetailDTO;
 import lk.ijse.gdse.shoeshopbackend.dto.SupplierDTO;
-import lk.ijse.gdse.shoeshopbackend.entity.Customer;
-import lk.ijse.gdse.shoeshopbackend.entity.Order;
-import lk.ijse.gdse.shoeshopbackend.entity.OrderDetail;
-import lk.ijse.gdse.shoeshopbackend.entity.Supplier;
+import lk.ijse.gdse.shoeshopbackend.embedded.OrderDetailPK;
+import lk.ijse.gdse.shoeshopbackend.entity.*;
 import lk.ijse.gdse.shoeshopbackend.repository.CustomerRepo;
 import lk.ijse.gdse.shoeshopbackend.repository.InventoryRepo;
 import lk.ijse.gdse.shoeshopbackend.repository.OrderDetailRepo;
@@ -17,6 +17,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -70,7 +71,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
             customer.setLoyaltyPoints(newPoints);
             System.out.println("loyaltyLevel = "+customer.getLoyaltyLevel());
             System.out.println("loyaltyPoints = "+customer.getLoyaltyPoints());
-            //customerRepo.save(customer);
+            customerRepo.save(customer);
 
             //Reduce item qty /////////////////////////////////////////////////////////////
             List<OrderDetail> orderDetailsByOrderId = orderDetailRepo.findOrderDetailsByOrderId(orderId);
@@ -102,11 +103,73 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     }
 
     @Override
+    public boolean refundOrderDetails(CustomDTO customDTO) {
+        OrderDetailPK pk = new OrderDetailPK(customDTO.getOrderId(),customDTO.getItemCode(),customDTO.getSize());
+        if (orderDetailRepo.existsById(pk)){
+            /*Update order total //////////////////*/
+            Order order = orderRepo.findByOrderId(customDTO.getOrderId());
+            if (order != null){
+                double newTotalPrice = order.getTotalPrice() - customDTO.getUnitTotalPrice();
+                order.setTotalPrice(newTotalPrice);
+                orderRepo.save(order);
+            }
+
+            /*Update Item qty /////////////////////*/
+            String itemCode = customDTO.getItemCode();
+            String size = customDTO.getSize();
+            int availableQty = inventoryRepo.findQtyByItemCodeAndSize(itemCode, size);
+            int newQty = availableQty + customDTO.getQty();
+
+            String status;
+            if (newQty<=0){
+                status="Not Available";
+            } else if (newQty<10) {
+                status="Low";
+            } else {
+                status="Available";
+            }
+            inventoryRepo.updateByItemCodeAndSize(newQty, status, itemCode,size);
+
+
+            /*Delete order detail /////////////////*/
+            orderDetailRepo.deleteById(pk);
+
+            /*Delete order ////////////////////////*/
+            if (customDTO.getArrayLength() == 0){
+                orderRepo.deleteById(customDTO.getOrderId());
+                //System.out.println("Delete Order");
+            }
+            //System.out.println("exists");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
     public OrderDTO getOrderByOrderId(String orderId) {
         if (!orderRepo.existsById(orderId)){
             throw new NotFoundException("Order Id does not exists!");
         }
         Order order = orderRepo.findOrderByOrderId(orderId);
         return mapper.map(order, OrderDTO.class);
+    }
+
+    @Override
+    public List<OrderDetailDTO> getOrderDetailListByOrderId(String orderId) {
+        List<OrderDetail> details = orderDetailRepo.findOrderDetailsByOrderId(orderId);
+        List<OrderDetailDTO> detailDTOS = new ArrayList<>();
+        for (OrderDetail detail : details) {
+            OrderDetailDTO dto = new OrderDetailDTO(
+                    detail.getOrderDetailPK().getOrder_id(),
+                    detail.getOrderDetailPK().getItem_code(),
+                    detail.getItemName(),
+                    detail.getOrderDetailPK().getSize(),
+                    detail.getUnitPrice(),
+                    detail.getItemQty()
+            );
+            detailDTOS.add(dto);
+        }
+        return detailDTOS;
     }
 }

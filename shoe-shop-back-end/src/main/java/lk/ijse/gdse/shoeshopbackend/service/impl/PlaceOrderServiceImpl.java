@@ -61,7 +61,7 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
         customer.setLoyaltyLevel(loyaltyLevel);
         customer.setLoyaltyPoints(newPoints);
 
-        //System.out.println("order Date  ="+ orderDTO.getOrderDate());
+        System.out.println("order Date  ="+ orderDTO.getOrderDate());
         customer.setRecentPurchaseDate(orderDTO.getOrderDate());
         customerRepo.save(customer);
 

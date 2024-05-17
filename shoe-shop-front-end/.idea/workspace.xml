@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0c0b568-ce36-4998-a697-66497518f100" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/controller/OrderDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/controller/OrderDetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/repository/OrderRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/repository/OrderRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/OrderDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/OrderDetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/OrderDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/OrderDetailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pages/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/OrderDetailController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/OrderDetailController.js" afterDir="false" />
-    </list>
+    <list default="true" id="a0c0b568-ce36-4998-a697-66497518f100" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +41,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/GDSE-66/Second Semester/AAD/CourseWork/Shoe-shop-management-system/shoe-shop-back-end",
+    "last_opened_file_path": "D:/GDSE-66/Second Semester/AAD/CourseWork/Shoe-shop-management-system/shoe-shop-front-end",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -105,7 +97,8 @@
       <workItem from="1715677508825" duration="636000" />
       <workItem from="1715788638010" duration="7082000" />
       <workItem from="1715829896368" duration="238000" />
-      <workItem from="1715876235408" duration="2603000" />
+      <workItem from="1715876235408" duration="5446000" />
+      <workItem from="1715931272900" duration="7405000" />
     </task>
     <servers />
   </component>
