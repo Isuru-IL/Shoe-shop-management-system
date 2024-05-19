@@ -116,20 +116,12 @@ $("#sign-up-nav").click(function () {
 });*/
 
 $("#btn-log-in").click(function () {
-    window.location.href = '../assets/pages/admin.html';
+    /*window.location.href = '../assets/pages/admin.html';*/
     //setView($("#home-page"));
     /*if (checkLogInUserDetails()) {
         setView($("#home-page"));
     }*/
 });
-
-$("#btn-sign-up").click(function () {
-    setView($("#log-in-page"));
-    /*if (checkSignUpUserDetails()) {
-        setView($("#log-in-page"));
-    }*/
-});
-
 $("#link-log-in").click(function () {
     setView($("#log-in-page"));
 });

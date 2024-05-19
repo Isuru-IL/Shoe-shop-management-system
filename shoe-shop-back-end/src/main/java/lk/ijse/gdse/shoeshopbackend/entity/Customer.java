@@ -1,9 +1,6 @@
 package lk.ijse.gdse.shoeshopbackend.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lk.ijse.gdse.shoeshopbackend.util.CustomerLoyaltyLevel;
 import lk.ijse.gdse.shoeshopbackend.util.Gender;
 import lombok.AllArgsConstructor;
@@ -12,6 +9,8 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -33,4 +32,7 @@ public class Customer {
     private CustomerLoyaltyLevel loyaltyLevel;
     private Integer loyaltyPoints;
     private Timestamp recentPurchaseDate;
+
+    /*@OneToMany(mappedBy = "customer_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders = new ArrayList<>();*/
 }

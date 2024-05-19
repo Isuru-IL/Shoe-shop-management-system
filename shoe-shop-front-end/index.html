@@ -25,8 +25,8 @@
                         <img src="assets/resources/image/logo-icon.png" width="35px" height="35px" alt="icon not found">
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="txtLogInUserName" placeholder="name@example.com">
-                        <label for="txtLogInUserName">User Name</label>
+                        <input type="text" class="form-control" id="txtLogInEmail" placeholder="name@example.com">
+                        <label for="txtLogInEmail">Email</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="password" class="form-control" id="txtLogInPassword" placeholder="Password">
@@ -94,7 +94,13 @@
     </main>
     <script src="assets/resources/bootstrap/js/bootstrap.js"></script>
     <script src="assets/resources/bootstrap/js/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="controllers/DashboardController.js"></script>
+    <script src="controllers/SignUpController.js"></script>
+    <script src="controllers/LogInController.js"></script>
+
+    <script src="controllers/admin/validation/SignUpValidation.js"></script>
+    <script src="controllers/admin/validation/LogInValidation.js"></script>
 </body>
 </html>
 

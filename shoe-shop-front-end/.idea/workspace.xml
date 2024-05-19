@@ -5,7 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0c0b568-ce36-4998-a697-66497518f100" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/auth/request/SignInRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/auth/request/SignUpRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/auth/response/JwtAuthResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/config/JwtConfigurationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/dto/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/repository/UserRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/AuthenticationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/exception/IncorrectPasswordException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/JwtServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/LogInController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/SignUpController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/admin/validation/LogInValidation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/admin/validation/SignUpValidation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/advice/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/advice/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/entity/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/repository/EmployeeRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/repository/EmployeeRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/DashboardController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/DashboardController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/AdminCustomerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/AdminCustomerController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,25 +63,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/GDSE-66/Second Semester/AAD/CourseWork/Shoe-shop-management-system/shoe-shop-front-end&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/GDSE-66/Second Semester/AAD/CourseWork/Other/Shoe-shop-jwt-demo/shoe-shop-front-end",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GDSE-66\Second Semester\AAD\CourseWork\Shoe-shop-management-system\shoe-shop-front-end\controllers" />
       <recent name="D:\GDSE-66\Second Semester\AAD\CourseWork\Shoe-shop-management-system\shoe-shop-front-end\assets\resources\image" />
       <recent name="D:\GDSE-66\Second Semester\AAD\CourseWork\Shoe-shop-management-system\shoe-shop-front-end\assets\resources" />
     </key>
@@ -104,6 +131,7 @@
       <workItem from="1715931272900" duration="7405000" />
       <workItem from="1715972620759" duration="42000" />
       <workItem from="1716121539082" duration="79000" />
+      <workItem from="1716142753863" duration="12798000" />
     </task>
     <servers />
   </component>

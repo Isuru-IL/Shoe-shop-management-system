@@ -1,6 +1,7 @@
 package lk.ijse.gdse.shoeshopbackend.advice;
 
 import lk.ijse.gdse.shoeshopbackend.service.exception.DuplicateRecordException;
+import lk.ijse.gdse.shoeshopbackend.service.exception.IncorrectPasswordException;
 import lk.ijse.gdse.shoeshopbackend.service.exception.NotFoundException;
 import lk.ijse.gdse.shoeshopbackend.service.exception.ServiceException;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,9 @@ public class GlobalExceptionHandler {
         }
         else if (exp instanceof NotFoundException){
             commonErrorAttribute = getCommonErrorAttribute(HttpStatus.NOT_FOUND);
+        }
+        else if (exp instanceof IncorrectPasswordException){
+            commonErrorAttribute = getCommonErrorAttribute(HttpStatus.UNAUTHORIZED);
         }
         else {
             commonErrorAttribute=getCommonErrorAttribute(HttpStatus.INTERNAL_SERVER_ERROR);

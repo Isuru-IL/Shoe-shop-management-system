@@ -10,6 +10,9 @@ function getAllCustomers() {
         url: "http://localhost:8080/api/v1/customer/getAllCustomers",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             loadCustomerDataToTable(resp);
         },
@@ -51,6 +54,9 @@ function loadNextCustomerId() {
     $.ajax({
         url:"http://localhost:8080/api/v1/customer/nextId",
         method:"GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success:function (resp) {
             $("#txtCusCode").val(resp);
         },
@@ -117,6 +123,9 @@ function saveCustomer() {
         method: "POST",
         data: jsonObj,
         contentType: "application/json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp, textStatus, jqxhr) {
             //console.log("customer save success: ", resp);
             clearCusInputFields()
@@ -177,6 +186,9 @@ function updateCustomer() {
         method: "PATCH",
         data: jsonObj,
         contentType: "application/json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp, textStatus, jqxhr) {
             //console.log("customer save success: ", resp);
             clearCusInputFields()
@@ -209,6 +221,9 @@ function deleteCustomer(code) {
         url: "http://localhost:8080/api/v1/customer/delete?code="+code,
         method: "DELETE",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             console.log("resp = "+resp)
             if (resp){
@@ -245,6 +260,9 @@ function cusSearchById(code) {
         url: "http://localhost:8080/api/v1/customer/searchById?code="+code,
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             loadCustomerDataToTableById(resp);
         },
@@ -286,6 +304,9 @@ function cusSearchByName(name) {
         url: "http://localhost:8080/api/v1/customer/searchByName?name="+name,
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             if (resp.length === 0){
                 swal("Error", "Customer Name not found!", "error");
