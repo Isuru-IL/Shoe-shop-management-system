@@ -54,8 +54,24 @@
                         <img src="assets/resources/image/logo-icon.png" width="35px" height="35px" alt="icon not found">
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="txtSignUpUserName" placeholder="name@example.com">
-                        <label for="txtSignUpUserName">User Name</label>
+                        <select class="form-select pt-0 pb-0" id="cmbSignUpRole">
+                            <option value="USER">User</option>
+                            <option value="ADMIN">Admin</option>
+                        </select>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="txtSignUpEmail" placeholder="name@example.com">
+                        <label for="txtSignUpEmail">Email</label>
+                    </div>
+                    <div class="row form-floating mb-3">
+                        <div class="form-floating col-6">
+                            <input type="text" class="form-control" id="txtSignUpFirstName" placeholder="name@example.com">
+                            <label for="txtSignUpFirstName">First Name</label>
+                        </div>
+                        <div class="form-floating col-6">
+                            <input type="text" class="form-control" id="txtSignUpLastName" placeholder="name@example.com">
+                            <label for="txtSignUpLastName">Last Name</label>
+                        </div>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="password" class="form-control" id="txtSignUpPassword" placeholder="Password">
