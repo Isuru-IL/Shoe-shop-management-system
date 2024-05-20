@@ -69,6 +69,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         //System.out.println(employee.getCode());
         return mapper.map(employee,EmployeeDTO.class);
     }
+    @Override
+    public EmployeeDTO searchByEmail(String email) {
+        return mapper.map(employeeRepo.findByEmail(email),EmployeeDTO.class);
+    }
 
     @Override
     public String generateNextId() {

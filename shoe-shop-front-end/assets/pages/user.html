@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User-Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../resources/normalize.css">
+    <link rel="stylesheet" href="../resources/fontawesome/css/all.css">
+    <link rel="stylesheet" href="../resources/css/user.css">
+    <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.css">
+</head>
+<body>
+    <header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid" id="header-main-cover">
+            <div id="logo-div" class="d-flex ps-2">
+               <!-- <img src="../resources/image/logo-icon.png" width="40px" height="40px" alt="logo icon not found">-->
+                <h1 class="navbar-brand me-2 ms-2 fs-4">Hello Shoes</h1>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end pe-5" id="navbarNav">
+                <ul class="navbar-nav gap-2">
+                    <li id="user-home-nav" class="nav-item">
+                        <!--                            <a class="nav-link active fw-medium text-body-secondary" aria-current="page" href="#"></i>Home</a>-->
+                        <a class="nav-link fw-medium" href="#user-home-page" style="font-size: 15px">Home</a>
+                    </li>
+                    <li id="user-product-nav" class="nav-item">
+                        <a class=" nav-link fw-medium" href="#user-product-page" style="font-size: 15px">Products</a>
+                    </li>
+                    <li id="user-customer-nav" class="nav-item">
+                        <a class=" nav-link fw-medium" href="#user-customer-page" style="font-size: 15px">Customers</a>
+                    </li>
+                    <li id="user-employee-nav" class="nav-item">
+                        <a class="nav-link fw-medium" href="#user-employee-page" style="font-size: 15px">Employees</a>
+                    </li>
+                    <li id="user-item-nav" class="nav-item">
+                        <a class="nav-link fw-medium" href="#user-item-page" style="font-size: 15px">Items</a>
+                    </li>
+                    <li id="user-supplier-nav" class="nav-item">
+                        <a class="nav-link fw-medium" href="#user-supplier-page" style="font-size: 15px">Suppliers</a>
+                    </li>
+                    <li id="user-order-nav" class="nav-item">
+                        <a class="nav-link fw-medium" href="#user-order-page" style="font-size: 15px">Place Order</a>
+                    </li>
+                    <li id="user-order-detail-nav" class="nav-item">
+                        <a class="nav-link fw-medium" href="#user-order-detail-page" style="font-size: 15px">Order details</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-nav gap">
+                <li id="admin-log-in-nav" class="nav-item">
+                    <a class="nav-link" href="#"><i class="fs-5 fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i></a>
+                </li>
+            </ul>
+            <div id="admin-img-div" class="d-flex pe-3 ps-5">
+                <img id="headerImg" src="../resources/image/userNotFound.png" width="45px" height="45px" alt="logo icon not found">
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <main>
+        <section id="user-home-page">
+        </section>
+
+        <section id="user-customer-page">
+            <section id="customer-title" class="d-flex mt-5 mb-4 justify-content-center">
+                <div class="rounded-pill w-75 bg-primary">
+                    <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-users mx-2"></i>Manage Customers</h4>
+                </div>
+            </section>
+            <section id="customer-content" class="container-fluid py-4 rounded-4">
+                <section class="d-flex justify-content-around flex-column align-items-center gap-5 flex-wrap-reverse">
+
+                    <!--table-->
+                    <section id="cus-search-content" class="col-12 col-sm-8 my-2">
+                        <section id="customer-search">
+                            <form class="row gx-3 gy-2 align-items-center">
+                                <div class="col-sm-3">
+                                    <label class="visually-hidden" for="cmbCustomerSearch">Preference</label>
+                                    <select class="form-select" id="cmbCustomerSearch">
+                                        <option value="ID">ID</option>
+                                        <option value="Name">Name</option>
+                                    </select>
+                                </div>
+                                <div class="w-50 col-sm-3">
+                                    <label class="visually-hidden" for="txtCustomerSearch">Name</label>
+                                    <input type="text" class="form-control" id="txtCustomerSearch" placeholder="Search customer">
+                                </div>
+                                <div class="col-auto">
+                                    <button id="btnCustomerSearch" type="button" class="btn btn-outline-primary">Search</button>
+                                </div>
+                                <div class="col-auto">
+                                    <button id="btnUserCustomerClear" type="button" class="btn btn-outline-warning">Clear</button>
+                                </div>
+                            </form>
+                        </section>
+                    </section>
+                    <!--                    table-->
+                    <section id="customer-table" class="p-2 rounded-4 bg-light w-100">
+                        <table id="tableCustomer" class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col" class="bg-primary text-white">Code</th>
+                                <th scope="col" class="bg-primary text-white">Name</th>
+                                <th scope="col" class="bg-primary text-white">Email</th>
+                                <th scope="col" class="bg-primary text-white">DoB</th>
+                                <th scope="col" class="bg-primary text-white">Contact</th>
+                                <th scope="col" class="bg-primary text-white">Address</th>
+                                <th scope="col" class="bg-primary text-white">Gender</th>
+                                <th scope="col" class="bg-primary text-white">Loyalty Date</th>
+                                <th scope="col" class="bg-primary text-white">Loyalty Level</th>
+                                <th scope="col" class="bg-primary text-white">Loyalty Points</th>
+                                <th scope="col" class="bg-primary text-white">Recent Purchase Date</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbody-customer" class="table-group-divider"></tbody>
+                        </table>
+                    </section>
+                </section>
+            </section>
+        </section>
+        <section id="user-employee-page">
+            <section id="employee-title" class="d-flex mt-5 mb-4 justify-content-center">
+                <div class="rounded-pill w-75 bg-primary">
+                    <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-users mx-2"></i>Manage Employees</h4>
+                </div>
+            </section>
+            <section id="employee-content" class="container-fluid py-4 rounded-4">
+                <section class="d-flex justify-content-around flex-column align-items-center gap-5 flex-wrap-reverse">
+
+                    <!--table-->
+                    <section id="Emp-search-content" class="col-12 col-sm-8 my-2">
+                        <section id="Emp-search">
+                            <form class="row gx-3 gy-2 align-items-center">
+                                <div class="col-sm-3">
+                                    <label class="visually-hidden" for="cmbEmpSearch">Preference</label>
+                                    <select class="form-select" id="cmbEmpSearch">
+                                        <option value="ID">ID</option>
+                                    </select>
+                                </div>
+                                <div class="w-50 col-sm-3">
+                                    <label class="visually-hidden" for="txtEmpSearch">Name</label>
+                                    <input type="text" class="form-control" id="txtEmpSearch" placeholder="Search employee">
+                                </div>
+                                <div class="col-auto">
+                                    <button id="btnEmpSearch" type="button" class="btn btn-outline-primary">Search</button>
+                                </div>
+                                <div class="col-auto">
+                                    <button id="btnUserEmpClear" type="button" class="btn btn-outline-warning">Clear</button>
+                                </div>
+                            </form>
+                        </section>
+                    </section>
+                    <!--                    table-->
+                    <section id="employee-table" class="p-2 rounded-4 bg-light w-100">
+                        <table id="tableEmployee" class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col" class="bg-primary text-white">Code</th>
+                                <th scope="col" class="bg-primary text-white">Pro Pic</th>
+                                <th scope="col" class="bg-primary text-white">Role</th>
+                                <th scope="col" class="bg-primary text-white">Name</th>
+                                <th scope="col" class="bg-primary text-white">Email</th>
+                                <th scope="col" class="bg-primary text-white">DoB</th>
+                                <th scope="col" class="bg-primary text-white">Contact</th>
+                                <th scope="col" class="bg-primary text-white">Address</th>
+                                <th scope="col" class="bg-primary text-white">Gender</th>
+                                <th scope="col" class="bg-primary text-white">Join Date</th>
+                                <th scope="col" class="bg-primary text-white">Civil Status</th>
+                                <th scope="col" class="bg-primary text-white">Designation</th>
+                                <th scope="col" class="bg-primary text-white">Branch</th>
+                                <th scope="col" class="bg-primary text-white">Emergency Con.</th>
+                                <th scope="col" class="bg-primary text-white">Guardian Name</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbody-employee" class="table-group-divider"></tbody>
+                        </table>
+                    </section>
+                </section>
+            </section>
+        </section>
+        <section id="user-supplier-page">
+            <section id="supplier-title" class="d-flex mt-5 mb-4 justify-content-center">
+                <div class="rounded-pill w-75 bg-primary">
+                    <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-users mx-2"></i>Manage Suppliers</h4>
+                </div>
+            </section>
+            <section id="supplier-content" class="container-fluid py-4 rounded-4">
+                <section class="d-flex justify-content-around flex-column align-items-center gap-5 flex-wrap-reverse">
+
+                    <!--table-->
+                    <section id="supplier-search-content" class="col-12 col-sm-8 my-2">
+                        <section id="supplier-search">
+                            <form class="row gx-3 gy-2 align-items-center">
+                                <div class="col-sm-3">
+                                    <label class="visually-hidden" for="cmbSupplierSearch">Preference</label>
+                                    <select class="form-select" id="cmbSupplierSearch">
+                                        <option value="ID">ID</option>
+                                        <option value="Name">Name</option>
+                                    </select>
+                                </div>
+                                <div class="w-50 col-sm-3">
+                                    <label class="visually-hidden" for="txtSupplierSearch">Name</label>
+                                    <input type="text" class="form-control" id="txtSupplierSearch" placeholder="Search customer">
+                                </div>
+                                <div class="col-auto">
+                                    <button id="btnSupplierSearch" type="button" class="btn btn-outline-primary">Search</button>
+                                </div>
+                                <div class="col-auto">
+                                    <button id="btnUserSupplierClear" type="button" class="btn btn-outline-warning">Clear</button>
+                                </div>
+                            </form>
+                        </section>
+                    </section>
+                    <!--                    table-->
+                    <section id="supplier-table" class="p-2 rounded-4 bg-light w-100">
+                        <table id="tableSupplier" class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col" class="bg-primary text-white">Code</th>
+                                <th scope="col" class="bg-primary text-white">Name</th>
+                                <th scope="col" class="bg-primary text-white">Email</th>
+                                <th scope="col" class="bg-primary text-white">Category</th>
+                                <th scope="col" class="bg-primary text-white">Address</th>
+                                <th scope="col" class="bg-primary text-white">Mobile No.</th>
+                                <th scope="col" class="bg-primary text-white">LandLine No.</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbody-supplier" class="table-group-divider"></tbody>
+                        </table>
+                    </section>
+                </section>
+            </section>
+        </section>
+        <section id="user-item-page">
+            <section id="item-title" class="d-flex mt-5 mb-4 justify-content-center">
+                <div class="rounded-pill w-75 bg-primary">
+                    <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-store mx-2"></i>Manage Inventory</h4>
+                </div>
+            </section>
+            <section id="item-content" class="container-fluid py-4 rounded-4">
+                <section class="d-flex justify-content-around flex-column align-items-center gap-5 flex-wrap-reverse">
+
+                    <!--table-->
+                    <section id="Item-search-content" class="col-12 col-sm-8 my-2">
+                        <section id="Item-search">
+                            <form class="row gx-3 gy-2 align-items-center">
+                                <div class="col-sm-3">
+                                    <label class="visually-hidden" for="cmbItemSearch">Preference</label>
+                                    <select class="form-select" id="cmbItemSearch">
+                                        <option value="ID">ID</option>
+                                        <option value="Name">Name</option>
+                                    </select>
+                                </div>
+                                <div class="w-50 col-sm-3">
+                                    <label class="visually-hidden" for="txtEmpSearch">Name</label>
+                                    <input type="text" class="form-control" id="txtItemSearch" placeholder="Search Item">
+                                </div>
+                                <div class="col-auto">
+                                    <button id="btnItemSearch" type="button" class="btn btn-outline-primary">Search</button>
+                                </div>
+                                <div class="col-auto">
+                                    <button id="btnUserItemClear" type="button" class="btn btn-outline-warning">Clear</button>
+                                </div>
+                            </form>
+                        </section>
+                    </section>
+                    <!--                    table-->
+                    <section id="item-table" class="p-2 rounded-4 bg-light w-100">
+                        <table id="tableItem" class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col" class="bg-primary text-white">Code</th>
+                                <th scope="col" class="bg-primary text-white">Item Pic</th>
+                                <th scope="col" class="bg-primary text-white">Description</th>
+                                <th scope="col" class="bg-primary text-white">Category</th>
+                                <th scope="col" class="bg-primary text-white">Size-6</th>
+                                <th scope="col" class="bg-primary text-white">Size-7</th>
+                                <th scope="col" class="bg-primary text-white">Size-8</th>
+                                <th scope="col" class="bg-primary text-white">Size-9</th>
+                                <th scope="col" class="bg-primary text-white">Sale Price</th>
+                                <th scope="col" class="bg-primary text-white">Buy Price</th>
+                                <th scope="col" class="bg-primary text-white">Profit</th>
+                                <th scope="col" class="bg-primary text-white">Profit Margin</th>
+                                <th scope="col" class="bg-primary text-white">Status</th>
+                                <th scope="col" class="bg-primary text-white">Supplier Code</th>
+                                <th scope="col" class="bg-primary text-white">Supplier Name</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbody-item" class="table-group-divider"></tbody>
+                        </table>
+                    </section>
+                </section>
+            </section>
+        </section>
+        <section id="user-product-page">
+            <section id="product-title" class="d-flex mt-5 mb-4 justify-content-center">
+                <div class="rounded-pill w-75 bg-primary">
+                    <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-store mx-2"></i>Products Details</h4>
+                </div>
+            </section>
+            <section id="product-content" class="container-fluid py-4 rounded-4">
+                <section class="d-flex justify-content-around flex-column align-items-center gap-5 flex-wrap-reverse">
+                    <!--input fields-->
+                    <section id="product-up-content" class="d-flex col-10 rounded-4 p-2 justify-content-center">
+                        <section class="row col-5 justify-content-center">
+                            <div class="row mb-3 mt-3 col-12">
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="txtMinPrice"  min="0"
+                                           oninput="validity.valid||(value='');" placeholder="min-price">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="txtMaxPrice" min="0"
+                                           oninput="validity.valid||(value='');" placeholder="max-price">
+                                </div>
+                                <button id="btnProductPriceSearch" type="button" class="col-sm-2 btn btn-outline-primary">Search</button>
+                            </div>
+                            <div class="row mb-3 col-12">
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="txtProductName" placeholder="search by name">
+                                </div>
+                                <button id="btnProductNameSearch" type="button" class="col-sm-2 btn btn-outline-primary">Search</button>
+                            </div>
+                            <div class="row mb-3 col-12 pt-3 pb-3"></div>
+                        </section>
+                        <section class="row col-5 justify-content-center">
+                            <div class="col-sm-9 mb-3 mt-3">
+                                <select id="cmbChooseByGender" class="form-select" aria-label="Default select example">
+                                    <option selected>Choose by Gender</option>
+                                    <option value="Mens">Men</option>
+                                    <option value="Women">Women</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-9 mb-3">
+                                <select id="cmbChooseByOccasion" class="form-select" aria-label="Default select example">
+                                    <option selected>Choose by Occasion</option>
+                                    <option value="Formal">Formal</option>
+                                    <option value="Casual">Casual</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-9 mb-3 d-flex justify-content-end">
+                                <button id="btnProductClear" type="button" class="col-sm-3 btn btn-outline-warning">Clear</button>
+                            </div>
+                        </section>
+                    </section>
+
+                    <!--item grid-->
+                    <div id="product-grid" class="mb-5">
+
+                    </div>
+                </section>
+            </section>
+        </section>
+        <section id="user-order-page">
+            <section id="title" class=" d-flex mt-5 mb-4 justify-content-center">
+                <div class="rounded-pill w-75 bg-primary">
+                    <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-cart-shopping px-2"></i>Place Order</h4>
+                </div>
+            </section>
+            <section id="content" class="container-fluid py-4 rounded-4">
+                <section class="container-fluid">
+                    <section id="place-order-content" class="row d-flex justify-content-between flex-wrap">
+                        <section id="order-details" class="col-12 col-sm-8">
+                            <section id="invoice-details" class=" col-12 p-2 rounded-4">
+                                <div class="rounded-3 w-100 bg-primary">
+                                    <h5 class="fw-normal ps-3 mb-0 py-1 text-white">Invoice Details</h5>
+                                </div>
+                                <div id="customer-detail-cover" class="row">
+                                    <div id="order-id" class="d-flex flex-wrap align-items-center gap-5">
+                                        <div class="mt-1 col-5 col-md-3">
+                                            <label for="txtOrderId" class="form-label m-0">Order ID :</label>
+                                            <input type="text" class="form-control" id="txtOrderId" disabled="true">
+                                        </div>
+                                        <div class="mt-1 col-5 col-md-3">
+                                            <label for="txtOrderDate" class="form-label m-0">Order Date :</label>
+                                            <input type="text" class="form-control" id="txtOrderDate" disabled="true">
+                                        </div>
+                                        <div class="mt-1 col-5 col-md-4">
+                                            <label for="lblCashierName" class="form-label m-0">Cashier Name :</label>
+                                            <label id="lblCashierName"class="form-label m-0 fw-semibold">Isuru</label>
+                                        </div>
+                                    </div>
+                                    <!--                order-id ////////////////////////-->
+                                    <div id="customer-id" class="d-flex flex-wrap align-items-center gap-5">
+                                        <div class="mt-1 col-5 col-md-3">
+                                            <label for="cmbCustomerIds" class="form-label m-0">Customer ID :</label>
+                                            <select id="cmbCustomerIds" class="form-select" aria-label="Default select example">
+
+                                            </select>
+                                        </div>
+                                        <div class="mt-1 col-5 col-md-4">
+                                            <label for="lblCustomerName" class="form-label m-0">Customer Name :</label>
+                                            <label id="lblCustomerName"class="form-label m-0 fw-semibold"></label>
+                                        </div>
+                                    </div>
+                                    <!--                customer-id //////////////////////-->
+                                </div>
+                                <!--              customer-detail-cover/////////////////////-->
+                            </section>
+                            <!--           invoice-details ////////////////////////////-->
+                            <section id="item-details" class="mt-4 p-2 rounded-4">
+                                <div class="rounded-3 w-100 bg-primary">
+                                    <h5 class="fw-normal ps-3 mb-0 py-1 text-white">Item Details</h5>
+                                </div>
+                                <div id="item-details-cover">
+                                    <div id="item-id" class="d-flex flex-wrap gap-5 align-items-center">
+                                        <div class="mt-1 col-4 col-md-3">
+                                            <label for="cmbItemCodes" class="form-label m-0">Item Code :</label>
+                                            <select id="cmbItemCodes" class="form-select" aria-label="Default select example">
+
+                                            </select>
+                                        </div>
+                                        <div class="mt-1 col-4 col-md-3">
+                                            <label for="lblItemName" class="form-label m-0">Item Name :</label>
+                                            <label id="lblItemName" class="form-label m-0 fw-semibold"></label>
+                                        </div>
+                                        <div class="mt-1 col-4 col-md-3">
+                                            <label for="lblItemUnitPrice" class="form-label m-0">Unit Price :</label>
+                                            <label id="lblItemUnitPrice" class="form-label m-0 fw-semibold"></label>
+                                        </div>
+                                    </div>
+                                    <!--                item-id /////////////////-->
+                                    <div id="item-name" class="d-flex flex-wrap align-items-center gap-5">
+                                        <div class="mt-1 col-4 col-md-3">
+                                            <label for="cmbItemSizes" class="form-label m-0">Item Size :</label>
+                                            <select id="cmbItemSizes" class="form-select" aria-label="Default select example" disabled>
+                                                <option selected></option>
+                                                <option value="size_6">Size-6</option>
+                                                <option value="size_7">Size-7</option>
+                                                <option value="size_8">Size-8</option>
+                                                <option value="size_9">Size-9</option>
+                                            </select>
+                                        </div>
+                                        <div class="mt-1 col-4 col-md-3">
+                                            <label for="lblQtyOnHand" class="form-label m-0">Qty On Hand :</label>
+                                            <label id="lblQtyOnHand" class="form-label m-0 fw-semibold"></label>
+                                        </div>
+                                        <div class="mt-1 col-4 col-md-3">
+                                            <label for="txtOrderQty" class="form-label m-0">Order qty :</label>
+                                            <input type="number" class="form-control" id="txtOrderQty" >
+                                        </div>
+                                    </div>
+                                    <div id="item-addTo-card" class="d-flex flex-wrap align-items-center justify-content-end gap-5">
+                                        <div class="col-auto mt-3 ">
+                                            <button id="btnAddToCart" type="button" class="btn btn-warning" disabled="true">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                    <!--                item-name //////////////////-->
+                                </div>
+                                <!--              item-details-cover //////////////-->
+                            </section>
+                            <!--            item-details ////////////////////-->
+                        </section>
+                        <!--           order-details ////////////////////////////-->
+                        <section id="amount-details" class="col-4 p-2 rounded-4">
+                            <div id="sub-total" class="d-flex justify-content-center align-items-center gap-2 mb-2 mt-4">
+                                <label for="lblSubTotal" class="form-label m-0 text-danger fs-4 fw-semibold">Sub Total :</label>
+                                <label id="lblSubTotal" class="form-label m-0 fw-semibold text-danger fs-4"></label>
+                            </div>
+                            <div id="total" class="d-flex justify-content-center gap-2">
+                                <label for="lblTotal" class="form-label m-0 fs-5">Total :</label>
+                                <label id="lblTotal" class="form-label m-0 fs-5"></label>
+                            </div>
+                            <div id="enter-total-div" class="row d-flex justify-content-center gap-1 my-2">
+                                <div class="mt-1 col-6 col-md-5">
+                                    <label for="txtCash" class="form-label m-0">Cash :</label>
+                                    <input type="number" class="form-control" id="txtCash" >
+                                </div>
+                                <div class="mt-1 col-6 col-md-6">
+                                    <label for="txtDiscount" class="form-label m-0">Discount :</label>
+                                    <input type="number" class="form-control" id="txtDiscount" >
+                                </div>
+                            </div>
+                            <div id="pay-method-div" class="row d-flex justify-content-center gap-1 my-2">
+                                <div class="mt-1 col-6 col-md-5">
+                                    <label for="txtCash" class="form-label m-0">Payment Method :</label>
+                                    <select class="form-select" id="cmbPaymentMethod">
+                                        <option value="Cash">Cash</option>
+                                        <option value="Card">Card</option>
+                                    </select>
+                                </div>
+                                <div class="mt-1 col-6 col-md-6">
+                                    <label for="txtAddPoints" class="form-label m-0">Add Points :</label>
+                                    <input type="number" class="form-control" id="txtAddPoints" >
+                                </div>
+                            </div>
+                            <div id="balance" class="d-flex justify-content-start gap-2 my-3 ms-3">
+                                <label for="lblBalance" class="form-label m-0 fs-6">Balance :</label>
+                                <label id="lblBalance" class="form-label m-0 fs-6"></label>
+                            </div>
+                            <div class="col-auto d-flex justify-content-center mt-5">
+                                <button id="btnPlaceOrder" type="button" class="btn btn-success" disabled="true">Place Order</button>
+                            </div>
+                            <!--            enter-total-div /////////////////////-->
+                        </section>
+                        <!--          amount-details ///////////////////-->
+                    </section>
+                    <!--          place-order-content ///////////////////////-->
+                </section>
+                <!--      table///////////////////////////////////////////////////////////////-->
+                <section id="order-table" class="pt-5 rounded-4 bg-light">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="bg-primary text-white">Item Code</th>
+                            <th scope="col" class="bg-primary text-white">Item Name</th>
+                            <th scope="col" class="bg-primary text-white">Size</th>
+                            <th scope="col" class="bg-primary text-white">Unit Price</th>
+                            <th scope="col" class="bg-primary text-white">Quantity</th>
+                            <th scope="col" class="bg-primary text-white">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody-orderCart" class="table-group-divider">
+                        </tbody>
+                    </table>
+                </section>
+
+            </section>
+        </section>
+        <section id="user-order-detail-page">
+            <section id="order-detail-title" class=" d-flex mt-5 mb-4 justify-content-center">
+                <div class="rounded-pill w-75 bg-primary">
+                    <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-circle-info px-2"></i>Order Details</h4>
+                </div>
+            </section>
+            <section id="order-detail-content" class="container-fluid py-4 rounded-4">
+                <section class="row justify-content-center">
+                    <section id="order-details-search" class="col-12 mb-5 d-flex justify-content-center">
+                        <form class="row gx-3 gy-2 align-items-center">
+                            <div class="col-sm-3">
+                                <label class="visually-hidden" for="cmbOrderSearch">Preference</label>
+                                <select class="form-select" id="cmbOrderSearch">
+                                    <option value="OrderID">Order ID</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="visually-hidden" for="txtSearchOrder">Name</label>
+                                <input type="text" class="form-control" id="txtSearchOrder" placeholder="Search Order">
+                            </div>
+                            <div class="col-auto">
+                                <button id="btnOrderSearch" type="button" class="btn btn-outline-primary">Search</button>
+                            </div>
+                            <div class="col-auto">
+                                <button id="btnOrderClear" type="button" class="btn btn-outline-warning">Clear</button>
+                            </div>
+                        </form>
+                    </section>
+                    <!--order detail table -->
+                    <section id="order-detail-list-section" style="display: none" class="p-2 rounded-4 bg-light mb-4">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col" class="bg-primary text-white">Item Code</th>
+                                <th scope="col" class="bg-primary text-white">Item Name</th>
+                                <th scope="col" class="bg-primary text-white">Size</th>
+                                <th scope="col" class="bg-primary text-white">Quantity</th>
+                                <th scope="col" class="bg-primary text-white">Unit Price</th>
+                                <th scope="col" class="bg-primary text-white"></th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbody-refund-order-details" class="table-group-divider">
+                            </tbody>
+                        </table>
+                    </section>
+                    <!--          search order details ////////////////////-->
+
+                    <section id="order-detail-table" class="p-2 rounded-4 bg-light mb-4">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col" class="bg-primary text-white">Order ID</th>
+                                <th scope="col" class="bg-primary text-white">Cashier Name</th>
+                                <th scope="col" class="bg-primary text-white">Customer Name</th>
+                                <th scope="col" class="bg-primary text-white">Order Date and Time</th>
+                                <th scope="col" class="bg-primary text-white">Added Points</th>
+                                <th scope="col" class="bg-primary text-white">Total</th>
+                                <th scope="col" class="bg-primary text-white"></th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbody-refund-orders" class="table-group-divider">
+                            </tbody>
+                        </table>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </main>
+
+    <script src="../resources/bootstrap/js/bootstrap.js"></script>
+    <script src="../resources/bootstrap/js/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../../controllers/DashboardController.js"></script>
+    <script src="../../controllers/user/UserDashBoardController.js"></script>
+
+    <script src="../../controllers/admin/AdminCustomerController.js"></script>
+    <script src="../../controllers/admin/AdminEmployeeController.js"></script>
+    <script src="../../controllers/admin/AdminSupplierController.js"></script>
+    <script src="../../controllers/admin/AdminItemController.js"></script>
+    <script src="../../controllers/admin/ProductController.js"></script>
+    <script src="../../controllers/admin/PlaceOrderController.js"></script>
+    <script src="../../controllers/admin/OrderDetailController.js"></script>
+
+    <script src="../../controllers/user/UserCustomerController.js"></script>
+    <script src="../../controllers/user/UserEmployeeController.js"></script>
+    <script src="../../controllers/user/UserSupplierController.js"></script>
+    <script src="../../controllers/user/UserItemController.js"></script>
+
+    <script src="../../controllers/admin/validation/PlaceOrderValidation.js"></script>
+</body>
+</html>

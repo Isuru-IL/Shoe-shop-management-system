@@ -2,8 +2,8 @@ initiateUI();
 
 function initiateUI() {
     clearAll();
-    console.log("Admin-page")
-    $("#admin-home-page").css('display', 'block');
+    console.log("User-page")
+    $("#user-home-page").css('display', 'block');
     //$("header").css('display', 'none');
     setTheLastView();
     setImageForHeader();
@@ -12,29 +12,29 @@ function initiateUI() {
 function setTheLastView() {
     let view = localStorage.getItem("view");
     switch (view) {
-         case "HOME":
-             setView($("#admin-home-page"));
-             break;
-         case "CUSTOMER":
-             setView($("#admin-customer-page"));
-             break;
+        case "HOME":
+            setView($("#user-home-page"));
+            break;
+        case "CUSTOMER":
+            setView($("#user-customer-page"));
+            break;
         case "EMPLOYEE":
-            setView($("#admin-employee-page"));
+            setView($("#user-employee-page"));
             break;
         case "SUPPLIER":
-            setView($("#admin-supplier-page"));
+            setView($("#user-supplier-page"));
             break;
         case "ITEM":
-            setView($("#admin-item-page"));
+            setView($("#user-item-page"));
             break;
         case "PRODUCT":
-            setView($("#admin-product-page"));
+            setView($("#user-product-page"));
             break;
         case "ORDERS":
-            setView($("#admin-order-page"));
+            setView($("#user-order-page"));
             break;
         case "ORDER-DETAILS":
-            setView($("#admin-order-detail-page"));
+            setView($("#user-order-detail-page"));
             break;
         /*case "LOG-IN":
             setView($("#log-in-page"));
@@ -43,35 +43,35 @@ function setTheLastView() {
             setView($("#sign-up-page"));
             break; */
         default:
-            setView($("#admin-home-page"));
+            setView($("#user-home-page"));
     }
 }
 
 function saveLastView(clickedID) {
     console.log("clickedID ="+clickedID)
     switch (clickedID) {
-        case "admin-home-page":
+        case "user-home-page":
             localStorage.setItem("view", "HOME");
             break;
-        case "admin-customer-page":
+        case "user-customer-page":
             localStorage.setItem("view", "CUSTOMER");
             break;
-        case "admin-employee-page":
+        case "user-employee-page":
             localStorage.setItem("view", "EMPLOYEE");
             break;
-        case "admin-supplier-page":
+        case "user-supplier-page":
             localStorage.setItem("view", "SUPPLIER");
             break;
-        case "admin-item-page":
+        case "user-item-page":
             localStorage.setItem("view", "ITEM");
             break;
-        case "admin-product-page":
+        case "user-product-page":
             localStorage.setItem("view", "PRODUCT");
             break;
-        case "admin-order-page":
+        case "user-order-page":
             localStorage.setItem("view", "ORDERS");
             break;
-        case "admin-order-detail-page":
+        case "user-order-detail-page":
             localStorage.setItem("view", "ORDER-DETAILS");
             break;
         /*case "log-in-page":
@@ -84,7 +84,7 @@ function saveLastView(clickedID) {
 }
 
 function setView(viewOb) {
-    console.log("Admin "+viewOb.get(0).id);
+    console.log("User "+viewOb.get(0).id);
     clearAll();
     viewOb.css("display", "block");
     $("header").css('display', 'block');
@@ -104,60 +104,55 @@ function setView(viewOb) {
 
 function clearAll() {
     // $("#home-page,#customer-page,#item-page,#order-page,#order-detail-page,#log-in-page,#sign-up-page").css('display','none');
-    $("#admin-home-page,#admin-customer-page,#admin-employee-page,#admin-supplier-page,#admin-item-page,#admin-product-page,#admin-order-page,#admin-order-detail-page").css('display','none');
+    $("#user-home-page,#user-customer-page,#user-employee-page,#user-supplier-page,#user-item-page,#user-product-page,#user-order-page,#user-order-detail-page").css('display','none');
 }
 
 
-$("#admin-home-nav").click(function () {
-    setView($("#admin-home-page"));
+$("#user-home-nav").click(function () {
+    setView($("#user-home-page"));
 });
 
-$("#admin-customer-nav").click(function () {
-    setView($("#admin-customer-page"));
+$("#user-customer-nav").click(function () {
+    setView($("#user-customer-page"));
     customerInitialize();
 });
 
-$("#admin-employee-nav").click(function () {
-    setView($("#admin-employee-page"));
+$("#user-employee-nav").click(function () {
+    setView($("#user-employee-page"));
     employeeInitialize();
 });
 
-$("#admin-supplier-nav").click(function () {
-    setView($("#admin-supplier-page"));
+$("#user-supplier-nav").click(function () {
+    setView($("#user-supplier-page"));
     supplierInitialize();
 });
 
-$("#admin-item-nav").click(function () {
-    setView($("#admin-item-page"));
+$("#user-item-nav").click(function () {
+    setView($("#user-item-page"));
     itemInitialize();
 });
 
-$("#admin-product-nav").click(function () {
-    setView($("#admin-product-page"));
+$("#user-product-nav").click(function () {
+    setView($("#user-product-page"));
     productInitialize();
 });
 
-$("#admin-order-nav").click(function () {
+$("#user-order-nav").click(function () {
     placeOrderInitialize();
-    setView($("#admin-order-page"));
+    setView($("#user-order-page"));
 });
 
-$("#admin-order-detail-nav").click(function () {
-    setView($("#admin-order-detail-page"));
+$("#user-order-detail-nav").click(function () {
+    setView($("#user-order-detail-page"));
     orderDetailInitialize();
 });
 
-/*
-$("#admin-log-in-nav").click(function () {
-    window.location.href = '/shoe-shop-front-end/index.html';
-    $("#log-in-page").css('display', 'block');
-    $("#sign-up-page").css('display', 'none');
+/*$("#log-in-nav").click(function () {
+    setView($("#log-in-page"));
 });
 
-$("#admin-sign-up-nav").click(function () {
-    window.location.href = '/shoe-shop-front-end/index.html';
-    $("#log-in-page").css('display', 'none');
-    $("#sign-up-page").css('display', 'block');
+$("#sign-up-nav").click(function () {
+    setView($("#sign-up-page"));
 });*/
 
 function setImageForHeader() {

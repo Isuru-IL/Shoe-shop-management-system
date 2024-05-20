@@ -12,4 +12,5 @@ public interface EmployeeService {
     List<EmployeeDTO> searchEmployee(String name);
     EmployeeDTO searchEmployeeById(String id);
     String generateNextId();
+    EmployeeDTO searchByEmail(String email);
 }

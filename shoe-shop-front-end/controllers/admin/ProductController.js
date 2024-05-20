@@ -7,6 +7,9 @@ function getAllProItems() {
         url: "http://localhost:8080/api/v1/inventory/getAllItems",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             loadInventoryDataToGrid(resp);
         },
@@ -37,6 +40,9 @@ $("#btnProductPriceSearch").click(function () {
         url: "http://localhost:8080/api/v1/inventory/getAllItemsByPrice/"+minPrice+"/"+maxPrice,
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             loadInventoryDataToGrid(resp);
         },
@@ -61,6 +67,9 @@ $("#btnProductNameSearch").click(function () {
         url: "http://localhost:8080/api/v1/inventory/searchByName?name="+name,
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             if (resp.length === 0){
                 swal("Error", "Item Name not found!", "error");
@@ -85,6 +94,9 @@ $("#cmbChooseByGender").change(function () {
         url: "http://localhost:8080/api/v1/inventory/getAllItemsByCategoryGender?gender="+gender,
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             if (resp.length === 0){
                 swal("Error", "Items not found!", "error");
@@ -109,6 +121,9 @@ $("#cmbChooseByOccasion").change(function () {
         url: "http://localhost:8080/api/v1/inventory/getAllItemsByCategoryOccasion?occasion="+occasion,
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             if (resp.length === 0){
                 swal("Error", "Items not found!", "error");

@@ -32,7 +32,7 @@ function saveEmployee() {
     let guardianName = $("#txtEmpGuardianName").val();
     let emergencyContact = $("#txtEmpEmgContact").val();
     let proPic = $("#txtEmpProfilePic").prop('files')[0];
-    console.log("proPic = "+proPic);
+    /*console.log("proPic = "+proPic);*/
 
     var formData = new FormData();
     formData.append('code',code);
@@ -60,6 +60,9 @@ function saveEmployee() {
         processData: false,
         contentType: false,
         data: formData,
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp, textStatus, jqxhr) {
             //console.log("customer save success: ", resp);
             clearEmpInputFields()
@@ -137,10 +140,13 @@ function updateEmployee() {
         processData: false,
         contentType: false,
         data: formData,
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp, textStatus, jqxhr) {
             //console.log("customer save success: ", resp);
             clearEmpInputFields()
-            swal("Saved", "Employee updated successfully!", "success");
+            swal("Update", "Employee updated successfully!", "success");
             /*$("#btnCustomerSave").prop("disabled", true);
             $("#btnCustomerUpdate").prop("disabled", true);
             $("#btnCustomerDelete").prop("disabled", true);*/
@@ -171,6 +177,9 @@ function deleteEmployee(code) {
         url: "http://localhost:8080/api/v1/employee/delete?code="+code,
         method: "DELETE",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             console.log("resp = "+resp)
             if (resp){
@@ -191,6 +200,9 @@ function getAllEmployee() {
         url: "http://localhost:8080/api/v1/employee/getAllEmployees",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             loadEmployeeDataToTable(resp);
         },
@@ -297,6 +309,9 @@ function empSearchById(code) {
         url: "http://localhost:8080/api/v1/employee/searchById?code="+code,
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             //console.log(resp)
             setEmpImage(resp);
@@ -317,6 +332,9 @@ function empProPicSearchById(code) {
         url: "http://localhost:8080/api/v1/employee/searchById?code="+code,
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             setEmpImage(resp);
         },
@@ -334,6 +352,9 @@ function loadNextEmployeeId() {
     $.ajax({
         url:"http://localhost:8080/api/v1/employee/nextId",
         method:"GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success:function (resp) {
             $("#txtEmpCode").val(resp);
         },

@@ -33,7 +33,7 @@ function setTheLastView() {
             setView($("#sign-up-page"));
             break;
         default:
-            setView($("#home-page"));
+            setView($("#log-in-page"));
     }
 }
 
@@ -79,7 +79,7 @@ function setView(viewOb) {
 
 function clearAll() {
     // $("#home-page,#customer-page,#item-page,#order-page,#order-detail-page,#log-in-page,#sign-up-page").css('display','none');
-    $("#home-page,#log-in-page,#sign-up-page").css('display','none');
+    $("#log-in-page,#sign-up-page").css('display','none');
 }
 
 
@@ -105,22 +105,23 @@ $("#order-nav").click(function () {
 $("#order-detail-nav").click(function () {
     setView($("#order-detail-page"));
     orderDetailInitialize();
-});
-
-$("#log-in-nav").click(function () {
-    setView($("#log-in-page"));
-});
-
-$("#sign-up-nav").click(function () {
-    setView($("#sign-up-page"));
 });*/
 
-$("#btn-log-in").click(function () {
-    /*window.location.href = '../assets/pages/admin.html';*/
-    //setView($("#home-page"));
-    /*if (checkLogInUserDetails()) {
-        setView($("#home-page"));
-    }*/
+$("#admin-log-in-nav").click(function () {
+    window.location.href = '/shoe-shop-front-end/index.html';
+    $("#log-in-page").css('display', 'block');
+    $("#sign-up-page").css('display', 'none');
+    setTheLastView("log-in-page");
+    setTheLastView()
+});
+
+$("#admin-sign-up-nav").click(function () {
+    window.location.href = '/shoe-shop-front-end/index.html';
+    $("#log-in-page").css('display', 'none');
+    $("#sign-up-page").css('display', 'block');
+    setTheLastView("sign-up-page");
+    setTheLastView()
+    //setView($("#sign-up-page"));
 });
 $("#link-log-in").click(function () {
     setView($("#log-in-page"));

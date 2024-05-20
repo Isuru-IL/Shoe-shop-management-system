@@ -154,6 +154,9 @@ $("#btnPlaceOrder").click(function () {
         method: "POST",
         data: jsonObj,
         contentType: "application/json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp, textStatus, jqxhr) {
             console.log("placeOder success: ", resp);
             clearItemDetailsInputFields();
@@ -242,6 +245,9 @@ $("#cmbItemCodes").change(function () {
     $.ajax({
         url:"http://localhost:8080/api/v1/placeOrder/searchItemByCode?code="+code,
         method:"GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success:function (resp) {
             itemObj = resp;
             console.log(itemObj)
@@ -263,6 +269,9 @@ $("#cmbCustomerIds").change(function () {
     $.ajax({
         url:"http://localhost:8080/api/v1/placeOrder/searchCusById?code="+code,
         method:"GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success:function (resp) {
             $("#lblCustomerName").text(resp.name);
         },
@@ -278,6 +287,9 @@ function loadItemCodes() {
     $.ajax({
         url:"http://localhost:8080/api/v1/placeOrder/loadItemCodes",
         method:"GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success:function (resp) {
             $("#cmbItemCodes").empty().append(`<option selected></option>`);
             $.each(resp, function (index, code) {
@@ -293,6 +305,9 @@ function loadCustomerIds() {
     $.ajax({
         url:"http://localhost:8080/api/v1/placeOrder/loadCusIds",
         method:"GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success:function (resp) {
             $("#cmbCustomerIds").empty().append(`<option selected></option>`);
             $.each(resp, function (index, cusId) {
@@ -308,6 +323,9 @@ function loadNextOrderId() {
     $.ajax({
         url:"http://localhost:8080/api/v1/placeOrder/nextOrderId",
         method:"GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success:function (resp) {
             $("#txtOrderId").val(resp);
         },

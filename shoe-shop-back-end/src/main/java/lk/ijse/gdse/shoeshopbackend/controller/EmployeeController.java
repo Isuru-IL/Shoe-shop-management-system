@@ -110,5 +110,9 @@ public class EmployeeController {
         return employeeService.generateNextId();
     }
 
+    @GetMapping("/searchByEmail")
+    public EmployeeDTO searchByEmail(@RequestParam("email")String email){
+        return employeeService.searchByEmail(email);
+    }
 
 }

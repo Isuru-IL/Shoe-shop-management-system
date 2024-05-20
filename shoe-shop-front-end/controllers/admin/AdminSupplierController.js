@@ -10,6 +10,9 @@ function getAllSuppliers() {
         url: "http://localhost:8080/api/v1/supplier/getAllSuppliers",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             loadSupplierDataToTable(resp);
         },
@@ -72,6 +75,9 @@ function saveSupplier() {
         method: "POST",
         data: jsonObj,
         contentType: "application/json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp, textStatus, jqxhr) {
             //console.log("customer save success: ", resp);
             clearSupInputFields()
@@ -128,6 +134,9 @@ function updateSupplier() {
         method: "PATCH",
         data: jsonObj,
         contentType: "application/json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp, textStatus, jqxhr) {
             //console.log("customer save success: ", resp);
             clearSupInputFields()
@@ -160,6 +169,9 @@ function deleteSupplier(code) {
         url: "http://localhost:8080/api/v1/supplier/delete?code="+code,
         method: "DELETE",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             console.log("resp = "+resp)
             if (resp){
@@ -195,6 +207,9 @@ function supSearchByName(name) {
         url: "http://localhost:8080/api/v1/supplier/searchByName?name="+name,
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             if (resp.length === 0){
                 swal("Error", "Supplier Name not found!", "error");
@@ -213,6 +228,9 @@ function supSearchById(code) {
         url: "http://localhost:8080/api/v1/supplier/searchById?code="+code,
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             loadSupplierDataToTableById(resp);
         },
@@ -294,6 +312,9 @@ function loadNextSupplierId() {
     $.ajax({
         url:"http://localhost:8080/api/v1/supplier/nextId",
         method:"GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success:function (resp) {
             $("#txtSupCode").val(resp);
         },

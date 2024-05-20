@@ -23,7 +23,7 @@ header #admin-img-div #headerImg{
 }
 
 /*home-page //////////////////////*/
-#admin-home-page{
+#user-home-page{
     height: 90vh;
     background-image: url(../../resources/image/home-bg.jpg);
     background-attachment: fixed;
@@ -34,30 +34,30 @@ header #admin-img-div #headerImg{
 }
 
 /*admin-customer //////////////////////////////////*/
-#admin-customer-page{
+#user-customer-page{
     display: none;
 }
-#admin-customer-page #customer-content{
+#user-customer-page #customer-content{
     box-shadow: 0px 0px 8px 1px #0000007a;
     width: 90%;
 }
-#admin-customer-page #right-content{
+#user-customer-page #right-content{
     box-shadow: 0px 0px 8px 1px #0000007a;
 }
 
 /*admin-employee //////////////////////////////////*/
-#admin-employee-page{
+#user-employee-page{
     display: none;
 }
-#admin-employee-page #employee-content{
+#user-employee-page #employee-content{
     box-shadow: 0px 0px 8px 1px #0000007a;
     width: 90%;
 }
-#admin-employee-page #employee-up-content{
+#user-employee-page #employee-up-content{
     box-shadow: 0px 0px 8px 1px #0000007a;
 }
 
-#admin-employee-page #employee-pro-pic-div{
+#user-employee-page #employee-pro-pic-div{
     box-shadow: 0px 0px 2px 0.1px #0000007a;
     width: 100px;
     height: 100px;
@@ -66,30 +66,30 @@ header #admin-img-div #headerImg{
 }
 
 /*admin-supplier //////////////////////////////////*/
-#admin-supplier-page{
+#user-supplier-page{
     display: none;
 }
-#admin-supplier-page #supplier-content{
+#user-supplier-page #supplier-content{
     box-shadow: 0px 0px 8px 1px #0000007a;
     width: 90%;
 }
-#admin-supplier-page #supplier-up-content{
+#user-supplier-page #supplier-up-content{
     box-shadow: 0px 0px 8px 1px #0000007a;
 }
 
 /*admin-item //////////////////////////////////*/
-#admin-item-page{
+#user-item-page{
     display: none;
 }
-#admin-item-page #item-content{
+#user-item-page #item-content{
     box-shadow: 0px 0px 8px 1px #0000007a;
     width: 90%;
 }
-#admin-item-page #item-up-content{
+#user-item-page #item-up-content{
     box-shadow: 0px 0px 8px 1px #0000007a;
 }
 
-#admin-item-page #item-pic-div{
+#user-item-page #item-pic-div{
     box-shadow: 0px 0px 2px 0.1px #0000007a;
     width: 100px;
     height: 100px;
@@ -98,14 +98,14 @@ header #admin-img-div #headerImg{
 }
 
 /*admin-item //////////////////////////////////*/
-#admin-product-page{
+#user-product-page{
     display: none;
 }
-#admin-product-page #product-content{
+#user-product-page #product-content{
     box-shadow: 0px 0px 8px 1px #0000007a;
     width: 90%;
 }
-#admin-product-page #product-up-content{
+#user-product-page #product-up-content{
     box-shadow: 0px 0px 8px 1px #0000007a;
 }
 
@@ -117,7 +117,7 @@ header #admin-img-div #headerImg{
     padding: 0;
 }*/
 
-#admin-product-page #product-grid{
+#user-product-page #product-grid{
     margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -136,43 +136,43 @@ header #admin-img-div #headerImg{
 }
 
 /*place-order ///////////////////////////*/
-#admin-order-page{
+#user-order-page{
     display: none;
 }
-#admin-order-page #content{
+#user-order-page #content{
     box-shadow: 0px 0px 8px 1px #0000007a;
     width: 95%;
 }
-#admin-order-page #right-content{
+#user-order-page #right-content{
     box-shadow: 0px 0px 8px 1px #0000007a;
 }
-#admin-order-page #invoice-details{
+#user-order-page #invoice-details{
     box-shadow: 0px 0px 8px 1px #0000007a;
 }
-#admin-order-page #item-details{
+#user-order-page #item-details{
     box-shadow: 0px 0px 8px 1px #0000007a;
 }
-#admin-order-page #amount-details{
+#user-order-page #amount-details{
     box-shadow: 0px 0px 8px 1px #0000007a;
 }
-#admin-order-page #btnAddToCart{
+#user-order-page #btnAddToCart{
     margin-right: 200px;
 }
 
 /*order-detail ///////////////////////////*/
-#admin-order-detail-page{
+#user-order-detail-page{
     display: none;
 }
-#admin-order-detail-page #order-detail-content{
+#user-order-detail-page #order-detail-content{
     box-shadow: 0px 0px 8px 1px #0000007a;
     width: 90%;
 }
 
-#admin-order-detail-page #order-detail-list-section{
+#user-order-detail-page #order-detail-list-section{
     width: 70%;
 }
 
-#admin-order-detail-page .btn-refund {
+#user-order-detail-page .btn-refund {
     border: 1px solid red;
     border-radius: 10px;
     background-color: white;
@@ -181,12 +181,12 @@ header #admin-img-div #headerImg{
     cursor: pointer; /* Optional: Change cursor to pointer to indicate clickability */
 }
 
-#admin-order-detail-page .btn-refund:hover {
+#user-order-detail-page .btn-refund:hover {
     background-color: red; /* Optional: Change background color on hover */
     color: white; /* Optional: Change text color on hover */
 }
 
-#admin-order-detail-page .btn-refund-orderDetail {
+#user-order-detail-page .btn-refund-orderDetail {
     border: 1px solid red;
     border-radius: 10px;
     background-color: white;
@@ -195,7 +195,7 @@ header #admin-img-div #headerImg{
     cursor: pointer; /* Optional: Change cursor to pointer to indicate clickability */
 }
 
-#admin-order-detail-page .btn-refund-orderDetail:hover {
+#user-order-detail-page .btn-refund-orderDetail:hover {
     background-color: red; /* Optional: Change background color on hover */
     color: white; /* Optional: Change text color on hover */
 }

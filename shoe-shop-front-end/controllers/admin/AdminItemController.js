@@ -11,6 +11,9 @@ function getAllItem() {
         url: "http://localhost:8080/api/v1/inventory/getAllItems",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             loadInventoryDataToTable(resp);
         },
@@ -81,6 +84,9 @@ function saveItem() {
             dataType: "json",
             contentType:"application/json",
             data: JSON.stringify(itemObj),
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            },
             success: function (resp) {
                 //console.log("customer save success: ", resp);
                 clearItemInputFields()
@@ -162,6 +168,9 @@ function updateItem() {
             dataType: "json",
             contentType:"application/json",
             data: JSON.stringify(itemObj),
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            },
             success: function (resp) {
                 //console.log("customer save success: ", resp);
                 clearItemInputFields()
@@ -197,6 +206,9 @@ function deleteItem(code) {
         url: "http://localhost:8080/api/v1/inventory/delete?code="+code,
         method: "DELETE",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             console.log("resp = "+resp)
             if (resp){
@@ -358,6 +370,9 @@ function itemSearchById(code) {
         url: "http://localhost:8080/api/v1/inventory/searchById?code="+code,
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             loadInventoryDataToTableById(resp);
         },
@@ -395,6 +410,9 @@ function loadAllSuppliersCode() {
         url: "http://localhost:8080/api/v1/inventory/loadSuppliersCode",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             supplierAllData = resp;
             $.each(resp,function (index, supplier) {

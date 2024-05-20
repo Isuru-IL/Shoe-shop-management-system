@@ -48,7 +48,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         User user = userRepo.findByEmail(signInRequest.getEmail())
                 .orElseThrow(() -> new UsernameNotFoundException("user not found"));
         String generatedToken = jwtService.generateToken(user);
-        return JwtAuthResponse.builder().token(generatedToken).build();
+        return JwtAuthResponse.builder()
+                .token(generatedToken)
+                .role(user.getRole())
+                .build();
     }
 
     @Override
