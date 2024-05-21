@@ -1,12 +1,15 @@
 package lk.ijse.gdse.shoeshopbackend.repository;
 
 import jakarta.transaction.Transactional;
+import lk.ijse.gdse.shoeshopbackend.dto.MostSoldItemDTO;
 import lk.ijse.gdse.shoeshopbackend.entity.Employee;
 import lk.ijse.gdse.shoeshopbackend.entity.Inventory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface InventoryRepo extends JpaRepository<Inventory,String> {
@@ -43,4 +46,16 @@ public interface InventoryRepo extends JpaRepository<Inventory,String> {
             "FROM Inventory i " +
             "WHERE i.code = :itemCode", nativeQuery = true)
     Integer findQtyByItemCodeAndSize(String itemCode, String size);
+
+    /*admin panel*/
+    @Query("SELECT new lk.ijse.gdse.shoeshopbackend.dto.MostSoldItemDTO(i, SUM(od.itemQty)) " +
+            "FROM Inventory i " +
+            "JOIN i.orderDetails od " +
+            "JOIN od.order_id o " +
+            "WHERE DATE(o.orderDate) = :date " +
+            "GROUP BY i " +
+            "ORDER BY SUM(od.itemQty) DESC")
+    List<MostSoldItemDTO> findMostSoldItemByDate(LocalDate date);
+
+
 }

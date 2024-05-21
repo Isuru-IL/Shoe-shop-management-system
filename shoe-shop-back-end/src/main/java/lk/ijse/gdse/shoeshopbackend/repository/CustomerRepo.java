@@ -1,6 +1,7 @@
 package lk.ijse.gdse.shoeshopbackend.repository;
 
 import lk.ijse.gdse.shoeshopbackend.entity.Customer;
+import lk.ijse.gdse.shoeshopbackend.util.CustomerLoyaltyLevel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -14,6 +15,8 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
     /*custom JPQL query*/
     @Query("SELECT c.code FROM Customer c")
     List<String> findAllCustomerCodes();
+
+    Integer countByLoyaltyLevel(CustomerLoyaltyLevel level);
 
 
 }

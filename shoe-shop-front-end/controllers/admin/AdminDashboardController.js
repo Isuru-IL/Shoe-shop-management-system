@@ -110,6 +110,7 @@ function clearAll() {
 
 $("#admin-home-nav").click(function () {
     setView($("#admin-home-page"));
+    adminPanelInitialize();
 });
 
 $("#admin-customer-nav").click(function () {
