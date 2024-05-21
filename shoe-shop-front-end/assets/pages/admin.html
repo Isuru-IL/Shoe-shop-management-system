@@ -883,15 +883,19 @@
                                 </div>
                                 <!--                order-id ////////////////////////-->
                                 <div id="customer-id" class="d-flex flex-wrap align-items-center gap-5">
-                                    <div class="mt-1 col-5 col-md-3">
+                                    <div class="mt-1 col-4 col-md-3">
                                         <label for="cmbCustomerIds" class="form-label m-0">Customer ID :</label>
                                         <select id="cmbCustomerIds" class="form-select" aria-label="Default select example">
 
                                         </select>
                                     </div>
-                                    <div class="mt-1 col-5 col-md-4">
+                                    <div class="mt-1 col-4 col-md-3">
                                         <label for="lblCustomerName" class="form-label m-0">Customer Name :</label>
                                         <label id="lblCustomerName"class="form-label m-0 fw-semibold"></label>
+                                    </div>
+                                    <div class="mt-1 col-4 col-md-3">
+                                        <label for="lblCustomerName" class="form-label m-0">Loyalty Level :</label>
+                                        <label id="lblCustomerLoyaltyLevel"class="form-label m-0 fw-semibold"></label>
                                     </div>
                                 </div>
                                 <!--                customer-id //////////////////////-->
@@ -1090,7 +1094,8 @@
 <script src="../resources/bootstrap/js/bootstrap.js"></script>
 <script src="../resources/bootstrap/js/jquery-3.7.1.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="../../controllers/DashboardController.js"></script>
+
+<script src="../../controllers/admin/AdminPanelController.js"></script>
 <script src="../../controllers/admin/AdminDashboardController.js"></script>
 <script src="../../controllers/admin/AdminCustomerController.js"></script>
 <script src="../../controllers/admin/AdminEmployeeController.js"></script>
@@ -1099,7 +1104,6 @@
 <script src="../../controllers/admin/ProductController.js"></script>
 <script src="../../controllers/admin/PlaceOrderController.js"></script>
 <script src="../../controllers/admin/OrderDetailController.js"></script>
-<script src="../../controllers/admin/AdminPanelController.js"></script>
 
 <script src="../../controllers/admin/validation/CustomerValidation.js"></script>
 <script src="../../controllers/admin/validation/EmployeeValidation.js"></script>

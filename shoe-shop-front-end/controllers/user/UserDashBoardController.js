@@ -103,7 +103,6 @@ function setView(viewOb) {
 }
 
 function clearAll() {
-    // $("#home-page,#customer-page,#item-page,#order-page,#order-detail-page,#log-in-page,#sign-up-page").css('display','none');
     $("#user-home-page,#user-customer-page,#user-employee-page,#user-supplier-page,#user-item-page,#user-product-page,#user-order-page,#user-order-detail-page").css('display','none');
 }
 
@@ -147,13 +146,10 @@ $("#user-order-detail-nav").click(function () {
     orderDetailInitialize();
 });
 
-/*$("#log-in-nav").click(function () {
-    setView($("#log-in-page"));
+$("#user-log-in-nav").click(function () {
+    localStorage.setItem("view", "LOG-IN");
+    window.location.href = '/shoe-shop-front-end/index.html';
 });
-
-$("#sign-up-nav").click(function () {
-    setView($("#sign-up-page"));
-});*/
 
 function setImageForHeader() {
     let email = localStorage.getItem("empEmail")

@@ -274,6 +274,7 @@ $("#cmbCustomerIds").change(function () {
         },
         success:function (resp) {
             $("#lblCustomerName").text(resp.name);
+            $("#lblCustomerLoyaltyLevel").text(resp.loyaltyLevel);
         },
         error:function (xhr, status, error) {
             console.log("searchCusById() ="+error)

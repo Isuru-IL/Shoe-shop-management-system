@@ -7,6 +7,7 @@ function initiateUI() {
     //$("header").css('display', 'none');
     setTheLastView();
     setImageForHeader();
+    adminPanelInitialize();
 }
 
 function setTheLastView() {
@@ -148,18 +149,15 @@ $("#admin-order-detail-nav").click(function () {
     orderDetailInitialize();
 });
 
-/*
 $("#admin-log-in-nav").click(function () {
+    localStorage.setItem("view", "LOG-IN");
     window.location.href = '/shoe-shop-front-end/index.html';
-    $("#log-in-page").css('display', 'block');
-    $("#sign-up-page").css('display', 'none');
 });
 
 $("#admin-sign-up-nav").click(function () {
+    localStorage.setItem("view", "SIGN-UP");
     window.location.href = '/shoe-shop-front-end/index.html';
-    $("#log-in-page").css('display', 'none');
-    $("#sign-up-page").css('display', 'block');
-});*/
+});
 
 function setImageForHeader() {
     let email = localStorage.getItem("empEmail")
