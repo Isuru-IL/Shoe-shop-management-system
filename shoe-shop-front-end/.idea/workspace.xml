@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0c0b568-ce36-4998-a697-66497518f100" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pages/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pages/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/DashboardController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/DashboardController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/AdminDashboardController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/AdminDashboardController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/PlaceOrderController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/PlaceOrderController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/UserDashBoardController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/UserDashBoardController.js" afterDir="false" />
-    </list>
+    <list default="true" id="a0c0b568-ce36-4998-a697-66497518f100" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,6 +108,7 @@
       <workItem from="1716269488085" duration="10469000" />
       <workItem from="1716284332681" duration="4544000" />
       <workItem from="1716306899742" duration="6198000" />
+      <workItem from="1716491494334" duration="2159000" />
     </task>
     <servers />
   </component>

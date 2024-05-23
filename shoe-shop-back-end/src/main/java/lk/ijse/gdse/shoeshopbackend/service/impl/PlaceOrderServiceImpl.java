@@ -45,9 +45,16 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
         order.setCustomer_id(customer);
 
         int currentPoints = customer.getLoyaltyPoints();
-        int addedPoints = orderDTO.getAddedPoints();
+        Double totalPrice = orderDTO.getTotalPrice();
 
-        int newPoints = currentPoints+addedPoints;
+        int newPoints;
+        if (totalPrice>= 800){
+            newPoints = currentPoints + 1;
+        } else {
+            newPoints = currentPoints;
+        }
+        /*int addedPoints = orderDTO.getAddedPoints();*/
+
         CustomerLoyaltyLevel loyaltyLevel = null;
         if (newPoints < 10){
             loyaltyLevel = CustomerLoyaltyLevel.NEW;
@@ -61,7 +68,7 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
         customer.setLoyaltyLevel(loyaltyLevel);
         customer.setLoyaltyPoints(newPoints);
 
-        System.out.println("order Date  ="+ orderDTO.getOrderDate());
+        System.out.println("Loyalty points  ="+ customer.getLoyaltyPoints());
         customer.setRecentPurchaseDate(orderDTO.getOrderDate());
         customerRepo.save(customer);
 

@@ -7,7 +7,7 @@ function initiateUI() {
     //$("header").css('display', 'none');
     setTheLastView();
     setImageForHeader();
-    adminPanelInitialize();
+    //adminPanelInitialize();
 }
 
 function setTheLastView() {

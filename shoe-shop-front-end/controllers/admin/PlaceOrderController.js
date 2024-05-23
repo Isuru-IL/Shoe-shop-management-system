@@ -107,14 +107,13 @@ function calculateTotal() {
 $("#btnPlaceOrder").click(function () {
     let orderId = $("#txtOrderId").val();
     let orderDate = new Date();
-    let totalPrice = $("#lblSubTotal").text();
+    let totalPrice = parseFloat($("#lblSubTotal").text());
 
     let addedPoints;
-    console.log($("#txtAddPoints").val());
-    if ($("#txtAddPoints").val() === ""){
+    if (totalPrice>= 800){
+        addedPoints = 1;
+    }else {
         addedPoints = 0;
-    } else{
-        addedPoints= $("#txtAddPoints").val();
     }
 
     let paymentMethod = $("#cmbPaymentMethod").val();

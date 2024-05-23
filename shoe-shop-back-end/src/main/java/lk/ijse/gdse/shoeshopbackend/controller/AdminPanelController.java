@@ -35,7 +35,7 @@ public class AdminPanelController {
         response.put("mostSoldItemPicture", mostSolidItem.get("mostSoldItemPicture"));
         response.put("mostSoldItemQty", mostSolidItem.get("mostSoldItemQty"));
 
-        adminPanelService.getTotalProfitForDate(date);
+        /*adminPanelService.getTotalProfitForDate(date);*/
         return response;
     }
 }

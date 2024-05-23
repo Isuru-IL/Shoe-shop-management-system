@@ -45,6 +45,11 @@ function loadDataToSelectedDate(selectedDate) {
             "Authorization": "Bearer " + localStorage.getItem("token") // Assuming token is stored in localStorage
         },
         success: function (data) {
+            console.log(data)
+            if (data.totalPrice === null){
+                data.totalPrice=0.00;
+                console.log(data.totalPrice)
+            }
             if (data.mostSoldItemName === null){
                 swal("Error", "Cannot find sales for this date!", "error");
                 return
