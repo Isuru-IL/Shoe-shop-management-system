@@ -26,6 +26,10 @@ public class Order {
     private String paymentMethod;
     private String cashierName;
 
+    /*@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "employee_id", referencedColumnName = "code")
+    private Employee employee_id; //demo*/
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", referencedColumnName = "code")
     private Customer customer_id;

@@ -22,6 +22,10 @@ public class Inventory {
     private Double profit;
     private Double profitMargin;
     private String status;
+
+    /*@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "supplierCode", referencedColumnName = "code")
+    private Supplier supplierCode; //demo*/
     private String supplierCode;
     private String supplierName;
 

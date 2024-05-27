@@ -14,6 +14,7 @@ import lk.ijse.gdse.shoeshopbackend.service.exception.IncorrectPasswordException
 import lk.ijse.gdse.shoeshopbackend.service.exception.NotFoundException;
 import lk.ijse.gdse.shoeshopbackend.util.Role;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,23 +25,26 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AuthenticationServiceImpl implements AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final UserRepo userRepo;
     private final ModelMapper mapper;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
-
     private final EmployeeRepo employeeRepo;
+
 
     @Override
     public JwtAuthResponse signIn(SignInRequest signInRequest) {
         if (!userRepo.existsById(signInRequest.getEmail())){
+            log.error("User email not found!");
             throw new NotFoundException("User email not found");
         }
 
         User userByEmail = userRepo.getAllByEmail(signInRequest.getEmail());
         if (!passwordEncoder.matches(signInRequest.getPassword(), userByEmail.getPassword())){
+            log.error("Incorrect password!");
             throw new IncorrectPasswordException("Incorrect password");
         }
 
@@ -59,10 +63,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         String email = signUpRequest.getEmail();
 
         if (userRepo.existsById(email)) {
+            log.error("User Email already exists!");
             throw new DuplicateRecordException("User Email already exists!");
         }
 
         if (!employeeRepo.existsByEmail(email)) {
+            log.error("No Employee can be found with this email!");
             throw new NotFoundException("No Employee can be found with this email");
         }
 
