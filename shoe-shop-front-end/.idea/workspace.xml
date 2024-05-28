@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0c0b568-ce36-4998-a697-66497518f100" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/entity/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/entity/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/entity/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/util/EmailUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/repository/CustomerRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/repository/CustomerRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/AuthenticationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoe-shop-back-end/src/main/java/lk/ijse/gdse/shoeshopbackend/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/LogInController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/LogInController.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +119,7 @@
       <workItem from="1716306899742" duration="6198000" />
       <workItem from="1716491494334" duration="2159000" />
       <workItem from="1716828716399" duration="985000" />
+      <workItem from="1716877537096" duration="1192000" />
     </task>
     <servers />
   </component>

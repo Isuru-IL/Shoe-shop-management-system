@@ -19,6 +19,7 @@ $("#btn-log-in").click(function () {
             success:function (resp, textStatus, jqxhr) {
 
                 localStorage.setItem("token", resp.token)
+                sendWishedToCustomer();
                 switchToAnotherPageFromLogin(resp);
                 clearLogInInputFields();
 
@@ -36,6 +37,23 @@ $("#btn-log-in").click(function () {
         });
     }
 });
+
+function sendWishedToCustomer() {
+    $.ajax({
+        url: "http://localhost:8080/api/v1/auth/sendBirthDayWishes",
+        method: "GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
+        success:function (resp, textStatus, jqxhr) {
+            console.log("email send")
+        },
+        error: function (xhr, textStatus, error) {
+            console.log("logIn error: ", error);
+            console.log("logIn error: ", xhr);
+        }
+    });
+}
 
 function switchToAnotherPageFromLogin(resp) {
     let empEmail =txtLogEmail.val();

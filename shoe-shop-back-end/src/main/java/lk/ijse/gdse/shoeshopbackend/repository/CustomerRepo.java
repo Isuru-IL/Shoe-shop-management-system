@@ -18,5 +18,7 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
 
     Integer countByLoyaltyLevel(CustomerLoyaltyLevel level);
 
+    @Query("SELECT c FROM Customer c WHERE MONTH(c.dob) = MONTH(CURRENT_DATE) AND DAY(c.dob) = DAY(CURRENT_DATE)")
+    List<Customer> findCustomersByBirthdayToday();
 
 }
