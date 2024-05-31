@@ -362,4 +362,14 @@ function clearPlaceOrderInputFields() {
     $("#lblSubTotal, #lblTotal, #lblBalance").text("");
     $("#txtCash, #txtDiscount, #txtAddPoints").val("");
     $("#cmbPaymentMethod").prop("selectedIndex", "Cash");
+    $("#card-details-div").css("display", "none")
 }
+
+$("#cmbPaymentMethod").change(function () {
+    let payMethod = $("#cmbPaymentMethod").val();
+    if (payMethod === "Card"){
+        $("#card-details-div").css("display", "block")
+    } else {
+        $("#card-details-div").css("display", "none")
+    }
+});

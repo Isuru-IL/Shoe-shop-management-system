@@ -2,7 +2,6 @@ package lk.ijse.gdse.shoeshopbackend.service.impl;
 
 import lk.ijse.gdse.shoeshopbackend.dto.MostSoldItemDTO;
 import lk.ijse.gdse.shoeshopbackend.entity.Inventory;
-import lk.ijse.gdse.shoeshopbackend.entity.Order;
 import lk.ijse.gdse.shoeshopbackend.repository.CustomerRepo;
 import lk.ijse.gdse.shoeshopbackend.repository.InventoryRepo;
 import lk.ijse.gdse.shoeshopbackend.repository.OrderDetailRepo;
@@ -20,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class AdminServiceImpl implements AdminPanelService {
+public class AdminPanelServiceImpl implements AdminPanelService {
     @Autowired
     private OrderRepo orderRepo;
     private OrderDetailRepo orderDetailRepo;

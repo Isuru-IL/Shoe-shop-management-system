@@ -10,7 +10,7 @@ public class EmailUtil {
     private static final String SMTP_AUTH = "true";
     private static final String SMTP_STARTTLS = "true";
     private static final String USERNAME = "isurulakshan6007@gmail.com";
-    private static final String PASSWORD = "vmkazwfgjsacyxjg";
+    private static final String PASSWORD = "1234";
 
     public static void sendEmail(String to, String subject, String body) throws MessagingException {
         Properties properties = new Properties();

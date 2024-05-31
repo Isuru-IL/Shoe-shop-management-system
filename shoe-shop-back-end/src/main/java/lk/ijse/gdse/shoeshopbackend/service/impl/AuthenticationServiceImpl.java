@@ -107,10 +107,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         List<String> custStringList = new ArrayList<>();
         if (!isTaskExecutedToday()) {
             List<Customer> customersByBirthdayToday = customerRepo.findCustomersByBirthdayToday();
-            for (Customer customer : customersByBirthdayToday) {
-                System.out.println(customer.getName());
-            }
-            System.out.println("send wishes");
+            //System.out.println("send wishes");
             customersByBirthdayToday.forEach(customer -> {
                 try {
                     EmailUtil.sendEmail(customer.getEmail(), "Happy Birthday!", "Happy Birthday " + customer.getName() + "!");
